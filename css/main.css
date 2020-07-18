@@ -12623,12 +12623,10 @@ hr {
 
 .projects .project-grid figure img.project-thumb {
   z-index: 2;
-  -webkit-transform: scale(1), rotateY(0deg);
-  transform: scale(1), rotateY(0deg);
-  -webkit-transition: 0.25s ease-in-out, transform 1s, z-index 1s;
-  transition: 0.25s ease-in-out, transform 1s, z-index 1s;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
 }
 
 .projects .project-grid figure figcaption {
@@ -12642,12 +12640,6 @@ hr {
   padding: 0rem 3rem;
   color: #fff;
   z-index: 1;
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  -webkit-transition: transform 1s, z-index 1s;
-  transition: transform 1s, z-index 1s;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
 }
 
 @media screen and (min-width: 769px) {
