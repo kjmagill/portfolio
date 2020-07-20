@@ -12624,7 +12624,10 @@ hr {
 .projects .project-grid figure img.project-thumb {
   -webkit-transform: scale(1);
   transform: scale(1);
+  -ms-transform: 0.25s ease-in-out;
   -webkit-transition: 0.25s ease-in-out;
+  -moz-transform: 0.25s ease-in-out;
+  -o-transform: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
 
