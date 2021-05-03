@@ -1,0 +1,7 @@
+{
+  "cleanUrls": true,
+
+  "redirects": [
+    { "source": "/koji", "destination": "https://withkoji.com/@kjmagill" }
+  ]
+}
