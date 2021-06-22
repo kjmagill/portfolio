@@ -2,6 +2,14 @@
   "cleanUrls": true,
 
   "redirects": [
-    { "source": "/links", "destination": "https://withkoji.com/@kjmagill" }
+    { "source": "/links", "destination": "https://withkoji.com/@kjmagill" },
+    { "source": "/blog", "destination": "https://medium.com/@KJcodes" },
+    { "source": "/twitter", "destination": "https://twitter.com/kjmagill" },
+    { "source": "/facebook", "destination": "https://www.facebook.com/kj.magill" },
+    { "source": "/linkedin", "destination": "https://www.linkedin.com/in/kjmagill/" },
+    { "source": "/instagram", "destination": "https://www.instagram.com/kjmagill/" },
+    { "source": "/github", "destination": "https://github.com/kjmagill" },
+    { "source": "/angellist", "destination": "https://angel.co/kjmagill" },
+    { "source": "/rickroll", "destination": "https://www.youtube.com/watch?v=dQw4w9WgXcQ" }
   ]
 }
