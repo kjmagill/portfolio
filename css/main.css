@@ -12973,6 +12973,10 @@ img.is-bottom.mentor {
   padding: 0 30px;
 }
 
+.no-dec {
+  text-decoration: none;
+}
+
 @media screen and (min-width: 769px) {
   .section.intro .title {
     padding: 0 0;
