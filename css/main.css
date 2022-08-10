@@ -12977,6 +12977,10 @@ img.is-bottom.mentor {
   text-decoration: none;
 }
 
+.contrax {
+  color: white;
+}
+
 @media screen and (min-width: 769px) {
   .section.intro .title {
     padding: 0 0;
