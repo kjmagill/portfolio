@@ -134,6 +134,11 @@
       defer=""
       src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"
     ></script>
+    <script
+      src="https://www.google.com/recaptcha/api.js"
+      async
+      defer
+    ></script>
   </head>
 
   <body>
@@ -211,11 +216,6 @@
 
       <section class="is-white">
         <div class="container">
-          <script>
-            function onSubmit(token) {
-              document.getElementById('invisible-recaptcha-form').submit();
-            }
-          </script>
           <form
             id="invisible-recaptcha-form"
             accept-charset="UTF-8"
@@ -231,6 +231,8 @@
                       class="input is-large"
                       name="name"
                       type="text"
+                      minlength="2"
+                      maxlength="100"
                       required
                     />
                   </div>
@@ -244,6 +246,7 @@
                       class="input is-large"
                       name="email"
                       type="email"
+                      maxlength="160"
                       required
                     />
                   </div>
@@ -259,15 +262,48 @@
                       class="textarea is-large"
                       name="message"
                       rows="5"
+                      minlength="10"
+                      maxlength="3000"
                       required
                     ></textarea>
                   </div>
                 </div>
-                <div class="field is-hidden">
-                  <label class="is-hidden"></label>
-                  <div class="control is-expanded is-hidden">
-                    <input class="is-hidden" name="bot_vortex" type="hidden" />
+
+                <div class="field honeypot-field" aria-hidden="true">
+                  <label class="label" for="company_name">Company</label>
+                  <div class="control is-expanded">
+                    <input
+                      class="input"
+                      id="company_name"
+                      name="company_name"
+                      type="text"
+                      tabindex="-1"
+                      autocomplete="off"
+                    />
                   </div>
+                </div>
+
+                <div class="field is-hidden">
+                  <label class="is-hidden" for="bot_vortex">Leave blank</label>
+                  <div class="control is-expanded is-hidden">
+                    <input class="is-hidden" id="bot_vortex" name="bot_vortex" type="text" />
+                    <input id="form-loaded-at" name="form_loaded_at" type="hidden" value="" />
+                    <input id="js-check" name="js_check" type="hidden" value="no" />
+                  </div>
+                </div>
+
+                <p
+                  id="form-error"
+                  class="help is-danger"
+                  style="display: none; margin-top: 12px"
+                  role="alert"
+                ></p>
+
+                <div class="field" style="margin-top: 12px">
+                  <div
+                    class="g-recaptcha"
+                    data-sitekey="6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -276,10 +312,8 @@
                 <div class="field">
                   <div class="control">
                     <button
-                      class="button is-primary is-outlined is-medium is-fullwidth is-rounded g-recaptcha"
-                      data-sitekey="6Lew3SMUAAAAAJ82QoS7gqOTkRI_dhYrFy1f7Sqy"
-                      data-callback="onSubmit"
-                      data-badge="inline"
+                      class="button is-primary is-outlined is-medium is-fullwidth is-rounded"
+                      type="submit"
                     >
                       Send
                     </button>
@@ -294,5 +328,113 @@
 
     <!-- Scripts section -->
     <script src="js/main-min.js"></script>
+    <script>
+      (function () {
+        var form = document.getElementById('invisible-recaptcha-form');
+        if (!form) {
+          return;
+        }
+
+        var loadedAt = Date.now();
+        var lastSubmitKey = 'contact_form_last_submit_at';
+        var minSecondsToSubmit = 4;
+        var minSecondsBetweenSubmits = 45;
+        var formLoadedInput = document.getElementById('form-loaded-at');
+        var jsCheckInput = document.getElementById('js-check');
+        var errorBox = document.getElementById('form-error');
+
+        if (formLoadedInput) {
+          formLoadedInput.value = String(loadedAt);
+        }
+
+        if (jsCheckInput) {
+          jsCheckInput.value = 'yes';
+        }
+
+        function setError(message) {
+          if (!errorBox) {
+            return;
+          }
+
+          errorBox.textContent = message;
+          errorBox.style.display = 'block';
+        }
+
+        function clearError() {
+          if (!errorBox) {
+            return;
+          }
+
+          errorBox.textContent = '';
+          errorBox.style.display = 'none';
+        }
+
+        form.addEventListener('submit', function (event) {
+          clearError();
+
+          var now = Date.now();
+          var secondsElapsed = (now - loadedAt) / 1000;
+
+          var companyName = (form.elements.company_name && form.elements.company_name.value) || '';
+          var botVortex = (form.elements.bot_vortex && form.elements.bot_vortex.value) || '';
+          if (companyName.trim() || botVortex.trim()) {
+            event.preventDefault();
+            setError('Submission blocked.');
+            return;
+          }
+
+          if (secondsElapsed < minSecondsToSubmit) {
+            event.preventDefault();
+            setError('Please take a moment to complete the form before submitting.');
+            return;
+          }
+
+          var message = (form.elements.message && form.elements.message.value) || '';
+          var messageTrimmed = message.trim();
+          if (messageTrimmed.length < 10) {
+            event.preventDefault();
+            setError('Please include a bit more detail in your message.');
+            return;
+          }
+
+          var urlMatches = messageTrimmed.match(/https?:\/\//gi);
+          var urlCount = urlMatches ? urlMatches.length : 0;
+          if (urlCount > 2) {
+            event.preventDefault();
+            setError('Please remove extra links from your message and try again.');
+            return;
+          }
+
+          if (/(.)\1{9,}/.test(messageTrimmed)) {
+            event.preventDefault();
+            setError('Please revise your message and try again.');
+            return;
+          }
+
+          var recaptchaResponse =
+            (form.elements['g-recaptcha-response'] &&
+              form.elements['g-recaptcha-response'].value) ||
+            '';
+          if (!recaptchaResponse.trim()) {
+            event.preventDefault();
+            setError('Please complete the reCAPTCHA challenge before sending.');
+            return;
+          }
+
+          try {
+            var lastSubmitAt = Number(window.localStorage.getItem(lastSubmitKey) || '0');
+            if (lastSubmitAt && now - lastSubmitAt < minSecondsBetweenSubmits * 1000) {
+              event.preventDefault();
+              setError('Please wait a short moment before sending another message.');
+              return;
+            }
+
+            window.localStorage.setItem(lastSubmitKey, String(now));
+          } catch (error) {
+            // If localStorage is unavailable, continue without client-side cooldown.
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
