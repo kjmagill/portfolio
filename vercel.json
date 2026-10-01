@@ -1,7 +1,6 @@
 {
-  "cleanUrls": true,
-
   "redirects": [
+    { "source": "/contact.html", "destination": "/contact", "permanent": true },
     { "source": "/links", "destination": "https://withkoji.com/@kjmagill" },
     { "source": "/blog", "destination": "https://medium.com/@KJcodes" },
     { "source": "/twitter", "destination": "https://twitter.com/kjmagill" },
