@@ -12,7 +12,8 @@ export const projects: Project[] = [
   {
     slug: "compbook",
     name: "Compbook",
-    blurb: "Digital sports-card comps and market estimates.",
+    blurb:
+      "Sports-card collectors compare recent sales to estimate card values and follow the market.",
     href: "https://usecompbook.com",
     image: "/images/projects/compbook.webp",
     kind: "Product",
@@ -21,7 +22,8 @@ export const projects: Project[] = [
   {
     slug: "contrax",
     name: "Contrax dApp",
-    blurb: "Auto-compounding vaults and DeFi tools on Arbitrum.",
+    blurb:
+      "A DeFi app for exploring Arbitrum protocols and using auto-compounding yield vaults.",
     href: "https://github.com/Contrax-co/contrax-dapp",
     image: "/images/projects/contrax.webp",
     kind: "Protocol",
@@ -30,7 +32,7 @@ export const projects: Project[] = [
     slug: "care-for-life",
     name: "Care For Life",
     blurb:
-      "Offline-first Android app for nonprofit field operations in Africa.",
+      "Offline-first Android tools help nonprofit field teams coordinate programs in low-connectivity areas.",
     href: "https://github.com/kjmagill/care-for-life-fe",
     image: "/images/projects/care-for-life.webp",
     kind: "App",
@@ -39,7 +41,7 @@ export const projects: Project[] = [
     slug: "cantocurb",
     name: "CanToCurb",
     blurb:
-      "Redesign and online scheduling for a local trash & recycling valet service.",
+      "Trash and recycling bin valet service for homes in Cape May County.",
     href: "https://www.cantocurb.com",
     image: "/images/projects/cantocurb.webp",
     kind: "Studio",
@@ -47,7 +49,8 @@ export const projects: Project[] = [
   {
     slug: "back-bay",
     name: "Back Bay Rentals",
-    blurb: "Online booking and scheduling for local LSV rentals.",
+    blurb:
+      "Street-legal golf cart rentals with pickup and delivery across Cape May County.",
     href: "https://www.backbaybuggies.com",
     image: "/images/projects/backbay.webp",
     kind: "Studio",
@@ -55,7 +58,8 @@ export const projects: Project[] = [
   {
     slug: "golden-paver",
     name: "Golden Paver",
-    blurb: "Local service-business marketing website and lead capture.",
+    blurb:
+      "Paver cleaning, polymeric sanding, sealing, and restoration across South Jersey.",
     href: "https://www.goldenpaver.com",
     image: "/images/projects/golden-paver.webp",
     kind: "Studio",
@@ -63,7 +67,8 @@ export const projects: Project[] = [
   {
     slug: "hornless",
     name: "HornlessHorseAI",
-    blurb: "An AI platform built around radical transparency.",
+    blurb:
+      "An AI platform built around radical transparency.",
     href: "https://hornlesshorse.com",
     image: "/images/projects/hornless.webp",
     kind: "Product",
@@ -71,7 +76,8 @@ export const projects: Project[] = [
   {
     slug: "tmc",
     name: "Tom Magill Construction",
-    blurb: "Marketing site for a custom home builder and remodeler.",
+    blurb:
+      "Custom home building, additions, and remodeling in Cape May County, New Jersey.",
     href: "https://www.tommagillconstruction.com",
     image: "/images/projects/tmc.webp",
     kind: "Studio",
@@ -79,7 +85,8 @@ export const projects: Project[] = [
   {
     slug: "todesko",
     name: "Todesko Bookkeeping",
-    blurb: "A clear, professional web presence for a bookkeeping studio.",
+    blurb:
+      "Bookkeeping, QuickBooks setup, payroll, and financial reporting for small businesses.",
     href: "https://todeskobookkeeping.com",
     image: "/images/projects/todesko.webp",
     kind: "Studio",
