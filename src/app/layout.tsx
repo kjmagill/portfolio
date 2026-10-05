@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: "/images/og.webp",
+        url: "/images/og-2026.jpg",
         width: 1200,
         height: 630,
         alt: "KJ Magill — Full-stack developer and founder",
@@ -59,16 +59,16 @@ export const metadata: Metadata = {
     creator: "@kjmagill",
     title: site.title,
     description: site.description,
-    images: ["/images/og.webp"],
+    images: [{ url: "/images/social-2026.jpg", width: 1200, height: 600, alt: "KJ Magill — Developer & founder" }],
   },
   icons: {
     icon: [
-      { url: "/icons/favicon-32.png", sizes: "32x32", type: "image/png" },
-      { url: "/icons/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icons/favicon-32.png?v=white-2", sizes: "32x32", type: "image/png" },
+      { url: "/icons/favicon-16.png?v=white-2", sizes: "16x16", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
+    apple: [{ url: "/apple-touch-icon.png?v=white-2", sizes: "180x180" }],
   },
-  manifest: "/site.webmanifest",
+  manifest: "/site.webmanifest?v=white-2",
 };
 
 export const viewport: Viewport = {
