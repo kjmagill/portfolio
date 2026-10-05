@@ -4,8 +4,8 @@
   "description": "Full-stack developer and founder.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#071018",
-  "theme_color": "#071018",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
   "icons": [
     {
       "src": "/icons/icon-192.png",

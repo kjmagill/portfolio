@@ -79,7 +79,7 @@ export const projects: Project[] = [
   {
     slug: "todesko",
     name: "Todesko Bookkeeping",
-    blurb: "A bookkeeping studio site with a few extra CSS tricks.",
+    blurb: "A clear, professional web presence for a bookkeeping studio.",
     href: "https://todeskobookkeeping.com",
     image: "/images/projects/todesko.webp",
     kind: "Studio",

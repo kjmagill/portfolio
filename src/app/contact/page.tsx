@@ -17,22 +17,23 @@ export default function ContactPage() {
   return (
     <>
       <SiteHeader />
-      <main id="main" className="flex-1 py-16 sm:py-24">
-        <Container className="max-w-2xl">
-          <p className="kicker">Contact</p>
-          <h1 className="font-heading mt-4 text-4xl text-sand sm:text-5xl">
-            Thanks for reaching out.
-          </h1>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Fill out the form, or{" "}
-            <a href={`mailto:${site.email}`} className="prose-link">
-              email me
+      <main id="main" className="contact-page" tabIndex={-1}>
+        <Container className="contact-layout">
+          <section className="contact-intro" aria-labelledby="contact-title">
+            <p className="section-label">Contact</p>
+            <h1 id="contact-title">Let’s make something useful.</h1>
+            <p>
+              Tell me what you’re working on, where you’re stuck, or what kind
+              of role you have in mind. I read every message.
+            </p>
+            <a className="text-link" href={`mailto:${site.email}`}>
+              Or email me directly <span aria-hidden="true">↗</span>
             </a>
-            . I read everything that comes through.
-          </p>
-          <div className="mt-10">
+          </section>
+
+          <section className="contact-panel" aria-label="Send a message">
             <ContactForm />
-          </div>
+          </section>
         </Container>
       </main>
       <SiteFooter />

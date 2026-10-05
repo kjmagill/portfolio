@@ -1,59 +1,7 @@
 import { Container } from "@/components/container";
-
-const columns = [
-  {
-    title: "Front-end",
-    lede: "Clean, commented code and snappy, minimalist design.",
-    stack: "React, React Native, Next.js, TypeScript, JavaScript, HTML, CSS, Tailwind, Web3.js",
-    extras: ["Expo", "Figma", "Android Studio", "Redux", "Sass"],
-  },
-  {
-    title: "Back-end",
-    lede: "APIs, databases, and smart contracts from scratch through production.",
-    stack: "Node, Express, GraphQL, Python, Solidity, SQL, Rust",
-    extras: ["AWS", "Postgres", "Apollo", "Remix", "Truffle"],
-  },
-  {
-    title: "Collaboration",
-    lede: "Years leading and shipping with remote, freelance, and founding teams.",
-    stack: "Freelance projects, founding work, and distributed software teams",
-    extras: ["GitHub", "Notion", "Slack", "Google Workspace", "Airtable"],
-  },
-] as const;
-
-export function Practice() {
-  return (
-    <section className="py-24 sm:py-32">
-      <Container>
-        <p className="kicker">Practice</p>
-        <h2 className="font-heading mt-3 max-w-xl text-4xl text-sand sm:text-5xl">
-          How I like to build.
-        </h2>
-
-        <div className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-border/80 bg-border/80 sm:grid-cols-3">
-          {columns.map((column) => (
-            <article key={column.title} className="bg-navy-2 p-7 sm:p-8">
-              <h3 className="text-lg font-medium text-sand">{column.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                {column.lede}
-              </p>
-              <p className="mt-5 text-sm leading-relaxed text-sand/85">
-                {column.stack}
-              </p>
-              <ul className="mt-5 space-y-1.5">
-                {column.extras.map((item) => (
-                  <li
-                    key={item}
-                    className="font-mono text-[11px] tracking-[0.14em] text-copper uppercase"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
-}
+const capabilities = [
+  { number: "01", title: "Interfaces that feel right.", text: "Responsive websites and mobile experiences with a focus on clarity, performance, and the people using them.", stack: ["React", "Next.js", "React Native", "TypeScript"] },
+  { number: "02", title: "Solid beneath the surface.", text: "APIs, databases, and smart contracts that turn a polished interface into a useful, working product.", stack: ["Node.js", "Python", "SQL", "Solidity", "Rust"] },
+  { number: "03", title: "Ownership from day one.", text: "A hands-on partner from the first conversation through launch, bringing technical decisions and business goals together.", stack: ["Product thinking", "Technical leadership", "Collaboration"] },
+];
+export function Practice() { return <section id="expertise" className="section expertise-section"><Container><div className="section-heading"><div><p className="section-label">03 / What I bring</p><h2>Built with the whole picture in mind.</h2></div></div><div className="capabilities">{capabilities.map(item => <article key={item.number}><span className="capability-number">/{item.number}</span><h3>{item.title}</h3><p>{item.text}</p><ul>{item.stack.map(tech => <li key={tech}>{tech}</li>)}</ul></article>)}</div></Container></section>; }

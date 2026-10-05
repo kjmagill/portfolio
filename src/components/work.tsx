@@ -1,93 +1,17 @@
-import Image from "next/image";
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-
 import { Container } from "@/components/container";
-import { Button } from "@/components/ui/button";
-import { links } from "@/lib/site";
 import { projects } from "@/lib/projects";
+import { links } from "@/lib/site";
 
+const details = ["Sports-card intelligence", "Decentralized finance", "Technology with purpose"];
 export function Work() {
-  return (
-    <section id="work" className="scroll-mt-24 py-8 sm:py-12">
-      <Container>
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="kicker">Selected work</p>
-            <h2 className="font-heading mt-3 text-4xl text-sand sm:text-5xl">
-              Recent projects
-            </h2>
-          </div>
-          <p className="max-w-md text-sm leading-relaxed text-muted-foreground sm:text-right">
-            Products I founded, apps I shipped, and sites built for local
-            businesses. Want to see more?{" "}
-            <Link href={links.contact} className="prose-link">
-              Contact me
-            </Link>
-            .
-          </p>
-        </div>
-
-        <ul className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <li key={project.slug}>
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block"
-              >
-                <div className="overflow-hidden rounded-xl border border-border/80 bg-navy-2 transition-colors group-hover:border-copper/35">
-                  <div className="relative aspect-[3/2] overflow-hidden bg-navy">
-                    <Image
-                      src={project.image}
-                      alt=""
-                      fill
-                      loading="eager"
-                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className={
-                        project.fit === "contain"
-                          ? "object-contain p-6"
-                          : "object-cover transition duration-500 ease-out group-hover:scale-[1.03]"
-                      }
-                    />
-                  </div>
-                  <div className="flex items-start justify-between gap-3 p-4">
-                    <div>
-                      <p className="font-mono text-[10px] tracking-[0.22em] text-copper uppercase">
-                        {project.kind}
-                      </p>
-                      <h3 className="mt-1 text-base font-medium text-sand">
-                        {project.name}
-                      </h3>
-                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
-                        {project.blurb}
-                      </p>
-                    </div>
-                    <ArrowUpRight className="mt-5 size-4 shrink-0 text-muted-foreground transition-colors group-hover:text-teal-soft" />
-                  </div>
-                </div>
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div className="mt-12 flex justify-center">
-          <Button
-            asChild
-            variant="outline"
-            className="h-11 rounded-full border-copper/40 bg-transparent px-6 text-sand hover:bg-copper/10 hover:text-sand"
-          >
-            <a
-              href={links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              See more on GitHub
-            </a>
-          </Button>
-        </div>
-      </Container>
-    </section>
-  );
+  return <section id="work" className="section work-section"><Container>
+    <div className="section-heading"><div><p className="section-label">01 / Selected work</p><h2>Ideas into outcomes.</h2></div><p>Independent products, collaborative builds,<br className="hidden sm:block" /> and better tools for everyday business.</p></div>
+    <div className="featured-projects">{projects.slice(0, 3).map((project, i) => <a key={project.slug} className={`project-card project-${project.slug}`} href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} — ${project.href.includes("github") ? "view source on GitHub" : "visit website"} (opens in a new tab)`}>
+      <div className="project-art" aria-hidden="true"><span className="project-art-label">{details[i]}</span><span className="project-wordmark">{i === 0 ? "compbook" : i === 1 ? "contrax" : <>care<br />for life.</>}</span><span className="project-art-bottom">{i === 0 ? "Know the card. Know the value." : i === 1 ? "Built on Arbitrum" : "Connection isn’t a requirement."}<ArrowUpRight size={22} /></span></div>
+      <div className="project-info"><div><span className="project-index">0{i + 1} / {project.kind}</span><h3>{project.name}</h3></div><ArrowUpRight size={20} aria-hidden="true" /><p>{project.blurb}</p></div>
+    </a>)}</div>
+    <div className="more-work-heading"><h3>More from the workbench</h3><a href={links.github} target="_blank" rel="noopener noreferrer" className="text-link">GitHub <ArrowUpRight size={15} aria-hidden="true" /></a></div>
+    <div className="project-list">{projects.slice(3).map(project => <a href={project.href} target="_blank" rel="noopener noreferrer" key={project.slug} className="project-row"><span className="project-row-name">{project.name}</span><span className="project-row-description">{project.blurb}</span><span className="project-row-kind">{project.kind === "Studio" ? "Website" : project.kind}</span><ArrowUpRight size={18} aria-hidden="true" /><span className="sr-only"> (opens in a new tab)</span></a>)}</div>
+  </Container></section>;
 }
