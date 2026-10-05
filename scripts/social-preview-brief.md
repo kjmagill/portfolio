@@ -10,3 +10,7 @@ Exports:
 - `public/images/og.webp`: replacement for the existing legacy URL.
 
 Favicon variants are generated deterministically from the supplied logo with `node scripts/generate-icons.mjs`. They use a white mark and charcoal keyline. The Apple touch icon has an opaque light background; browser and manifest PNGs have transparency. Both ICO files contain 16px, 32px, and 48px representations.
+
+## Current revision
+
+Restore the first card composition with the headline “Custom software. Built to work.” Increase all supporting typography approximately 50%, retaining the KJ logo, category line, divider, name, role, and domain. Generated using the built-in image-generation tool from the original card reference. Current metadata points to `og-custom-software.jpg` (1200×630) and `social-custom-software.jpg` (1200×600); earlier asset URLs are also updated for compatibility.

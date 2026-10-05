@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: "/images/og-2026.jpg",
+        url: "/images/og-custom-software.jpg",
         width: 1200,
         height: 630,
         alt: "KJ Magill — Full-stack developer and founder",
@@ -59,10 +59,11 @@ export const metadata: Metadata = {
     creator: "@kjmagill",
     title: site.title,
     description: site.description,
-    images: [{ url: "/images/social-2026.jpg", width: 1200, height: 600, alt: "KJ Magill — Developer & founder" }],
+    images: [{ url: "/images/social-custom-software.jpg", width: 1200, height: 600, alt: "KJ Magill — Custom software. Built to work." }],
   },
   icons: {
     icon: [
+      { url: "/icons/favicon-48.png?v=white-2", sizes: "48x48", type: "image/png" },
       { url: "/icons/favicon-32.png?v=white-2", sizes: "32x32", type: "image/png" },
       { url: "/icons/favicon-16.png?v=white-2", sizes: "16x16", type: "image/png" },
     ],
