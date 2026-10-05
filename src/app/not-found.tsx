@@ -12,7 +12,7 @@ export default function NotFound() {
       <main id="main" className="flex flex-1 flex-col items-center justify-center px-5 py-24 text-center">
         <p className="kicker">404</p>
         <h1 className="font-heading mt-4 text-4xl text-sand sm:text-5xl">
-          This page drifted offshore.
+          Nothing here. Yet.
         </h1>
         <p className="mt-4 max-w-md text-muted-foreground">
           The link may be old. Head home, or jump straight to selected work.

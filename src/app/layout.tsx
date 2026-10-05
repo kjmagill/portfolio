@@ -1,24 +1,19 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 
 import { site, links } from "@/lib/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-const instrument = Instrument_Serif({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-instrument",
+const geistSans = localFont({
+  src: "./fonts/geist-latin.woff2",
   display: "swap",
+  variable: "--font-geist-sans",
+});
+
+const geistMono = localFont({
+  src: "./fonts/geist-mono-latin.woff2",
+  display: "swap",
+  variable: "--font-geist-mono",
 });
 
 export const metadata: Metadata = {
@@ -54,8 +49,8 @@ export const metadata: Metadata = {
       {
         url: "/images/og.webp",
         width: 1200,
-        height: 675,
-        alt: "Night aerial of Cape May Point Lighthouse",
+        height: 630,
+        alt: "KJ Magill — Full-stack developer and founder",
       },
     ],
   },
@@ -77,7 +72,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#071018",
+  themeColor: "#0a0a0a",
   colorScheme: "dark",
 };
 
@@ -93,7 +88,8 @@ const jsonLd = {
     addressRegion: "NJ",
     addressCountry: "US",
   },
-  sameAs: [links.github, links.linkedin, links.x, links.capeMayWebDesign],
+  sameAs: [links.github, links.linkedin, links.x],
+  knowsAbout: ["Software development", "Web development", "Mobile applications", "Decentralized finance"],
 };
 
 export default function RootLayout({
@@ -104,7 +100,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`dark ${geistSans.variable} ${geistMono.variable} ${instrument.variable} h-full antialiased`}
+      className={`dark ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <a
