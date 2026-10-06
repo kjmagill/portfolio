@@ -2,7 +2,7 @@ export const site = {
   name: "KJ Magill",
   title: "KJ Magill · Full-stack developer and founder",
   description:
-    "Full-stack developer and founder based in New Jersey. I build software for people and businesses — from local service sites to products that run in the field and on-chain.",
+    "Full-stack developer and founder based in New Jersey. I build software for people and businesses, from local service sites to products that run in the field and on-chain.",
   url: "https://kjmagill.com",
   email: "kjmagill@protonmail.com",
   locale: "Cape May, New Jersey",

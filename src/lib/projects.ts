@@ -13,7 +13,7 @@ export const projects: Project[] = [
     slug: "compbook",
     name: "Compbook",
     blurb:
-      "Sports-card collectors compare recent sales to estimate card values and follow the market.",
+      "A robust sales database and market price estimation tool for NBA digital trading cards.",
     href: "https://usecompbook.com",
     image: "/images/projects/compbook.webp",
     kind: "Product",
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     slug: "contrax",
     name: "Contrax dApp",
     blurb:
-      "A DeFi app for exploring Arbitrum protocols and using auto-compounding yield vaults.",
+      "Open source, no-code tools & auto-compounding vaults on the Ethereum & Arbitrum blockchains.",
     href: "https://github.com/Contrax-co/contrax-dapp",
     image: "/images/projects/contrax.webp",
     kind: "Protocol",
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     slug: "care-for-life",
     name: "Care For Life",
     blurb:
-      "Offline-first Android tools help nonprofit field teams coordinate programs in low-connectivity areas.",
+      "An offline-first Android app for nonprofit field operations in Africa.",
     href: "https://github.com/kjmagill/care-for-life-fe",
     image: "/images/projects/care-for-life.webp",
     kind: "App",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
   },
   {
     slug: "hornless",
-    name: "HornlessHorseAI",
+    name: "Hornless Horse",
     blurb:
       "An AI platform built around radical transparency.",
     href: "https://hornlesshorse.com",

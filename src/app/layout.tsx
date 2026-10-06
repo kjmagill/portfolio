@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         url: "/images/og-custom-software.jpg",
         width: 1200,
         height: 630,
-        alt: "KJ Magill — Full-stack developer and founder",
+        alt: "KJ Magill: Full-stack developer and founder",
       },
     ],
   },
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     creator: "@kjmagill",
     title: site.title,
     description: site.description,
-    images: [{ url: "/images/social-custom-software.jpg", width: 1200, height: 600, alt: "KJ Magill — Custom software. Built to work." }],
+    images: [{ url: "/images/social-custom-software.jpg", width: 1200, height: 600, alt: "KJ Magill: Custom software. Built to work." }],
   },
   icons: {
     icon: [
