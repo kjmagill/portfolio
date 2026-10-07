@@ -218,6 +218,16 @@ h2 { font-size: clamp(34px, 3.8vw, 50px); font-weight: 450; line-height: 1.18; l
   .contact-intro p:not(.section-label) { line-height: 1.75; }
   .contact-panel { border-left: 1px solid #292929; padding-left: 40px; }
 }
+/* Keep the desktop introduction and its actions together. */
+@media (min-width: 1024px) {
+  .hero { padding-top: 40px; }
+  .hero h1 { font-size: clamp(64px, 6.85vw, 96px); margin-top: 24px; }
+  .hero-bottom { flex-direction: column; align-items: flex-start; margin-top: 24px; gap: 20px; }
+  .hero-bottom > p { max-width: 560px; }
+  .hero-footnote { margin-top: 24px; padding-block: 16px; }
+  .work-section { padding-top: 44px; }
+}
+
 /* Portrait tablets need readable rows, not miniature desktop columns. */
 @media (min-width: 768px) and (max-width: 1023px) {
   .site-container,.header-inner { padding-inline: 32px; }
