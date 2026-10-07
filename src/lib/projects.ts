@@ -32,7 +32,7 @@ export const projects: Project[] = [
     slug: "care-for-life",
     name: "Care For Life",
     blurb:
-      "An offline-first Android app for nonprofit field operations in Africa.",
+      "An offline-first Android app for nonprofit field operations in rural Africa.",
     href: "https://github.com/kjmagill/care-for-life-fe",
     image: "/images/projects/care-for-life.webp",
     kind: "App",
