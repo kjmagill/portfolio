@@ -41,7 +41,7 @@ export const projects: Project[] = [
     slug: "cantocurb",
     name: "CanToCurb",
     blurb:
-      "Trash and recycling bin valet service for property-owners in Cape May County.",
+      "Trash and recycling valet service for landlords and home-owners in Cape May County.",
     href: "https://www.cantocurb.com",
     image: "/images/projects/cantocurb.webp",
     kind: "Studio",
