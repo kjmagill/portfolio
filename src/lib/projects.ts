@@ -68,7 +68,7 @@ export const projects: Project[] = [
     slug: "hornless",
     name: "Hornless Horse",
     blurb:
-      "An AI platform built around radical transparency.",
+      "An artificial intelligence platform built with radical transparency at its core.",
     href: "https://hornlesshorse.com",
     image: "/images/projects/hornless.webp",
     kind: "Product",
