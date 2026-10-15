@@ -2,6 +2,18 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/favicon.ico", has: [{ type: "host", value: "flowstatelabs.kjmagill.com" }], destination: "/flowstate/mark.svg" },
+        { source: "/", has: [{ type: "host", value: "flowstatelabs.kjmagill.com" }], destination: "/flowstate" },
+        { source: "/robots.txt", has: [{ type: "host", value: "flowstatelabs.kjmagill.com" }], destination: "/flowstate/robots" },
+        { source: "/sitemap.xml", has: [{ type: "host", value: "flowstatelabs.kjmagill.com" }], destination: "/flowstate/sitemap" },
+      ],
+      afterFiles: [],
+      fallback: [],
+    };
+  },
   async headers() {
     return [{ source: "/:path*", headers: [
       { key: "X-Content-Type-Options", value: "nosniff" },

@@ -23,7 +23,7 @@ export const links = {
   x: "https://x.com/kjmagill",
   email: "mailto:kjmagill@protonmail.com",
   capeMayWebDesign: "https://www.capemaywebdesign.com",
-  flowstate: "https://github.com/kjmagill",
+  flowstate: "https://kjmagill.com/flowstate",
   contrax: "https://github.com/Contrax-co/contrax-dapp",
 } as const;
 
