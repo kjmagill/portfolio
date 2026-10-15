@@ -1,7 +1,7 @@
 export const flowstate = {
   url: "https://flowstatelabs.kjmagill.com",
   title: "Flowstate Labs | Custom Software & Product Design Studio",
-  description: "Independent software and product studio led by KJ Magill. Product strategy, interface design, and custom web and mobile development, from first idea to launch.",
+  description: "New Jersey software and product studio led by KJ Magill. Product strategy, interface design, and custom web and mobile development, from idea to launch.",
   imageAlt: "Flowstate Labs. Find the flow. Build what’s next. Independent software and product studio led by KJ Magill.",
 } as const;
 
@@ -16,6 +16,8 @@ export const flowstateSchema = {
       image: `${url}/flowstate/og-flowstate-v2.jpg`,
       founder: { "@type": "Person", name: "KJ Magill", url: "https://kjmagill.com" },
       email: "kjmagill@protonmail.com",
+      location: { "@type": "Place", name: "New Jersey, United States", address: { "@type": "PostalAddress", addressRegion: "NJ", addressCountry: "US" } },
+      contactPoint: { "@type": "ContactPoint", contactType: "Project inquiries", email: "kjmagill@protonmail.com", url: "https://kjmagill.com/contact", availableLanguage: "English" },
     },
     {
       "@type": "WebSite", "@id": `${url}/#website`, name: "Flowstate Labs", url: `${url}/`,

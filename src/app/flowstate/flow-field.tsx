@@ -1,12 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Pause, Play } from "lucide-react";
 import styles from "./flowstate.module.css";
 
+function subscribeVisibility(notify: () => void) {
+  document.addEventListener("visibilitychange", notify);
+  return () => document.removeEventListener("visibilitychange", notify);
+}
+
 export function FlowField() {
   const [paused, setPaused] = useState(false);
-  return <div className={styles.field} data-paused={paused}>
+  const fieldRef = useRef<HTMLDivElement>(null);
+  const [inView, setInView] = useState(true);
+  const pageVisible = useSyncExternalStore(subscribeVisibility, () => document.visibilityState === "visible", () => true);
+  useEffect(() => {
+    if (!fieldRef.current || !("IntersectionObserver" in window)) return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting));
+    observer.observe(fieldRef.current);
+    return () => observer.disconnect();
+  }, []);
+  return <div ref={fieldRef} className={styles.field} data-paused={paused || !inView || !pageVisible}>
     <svg className={styles.fieldArt} viewBox="0 0 900 900" fill="none" aria-hidden="true">
       <defs>
         <linearGradient id="flow-light" x1="160" y1="130" x2="750" y2="780" gradientUnits="userSpaceOnUse">
@@ -29,6 +43,6 @@ export function FlowField() {
       <circle cx="450" cy="450" r="354" stroke="#b4c1a0" strokeOpacity=".12" strokeDasharray="2 9" />
       <path d="M450 84v20M450 796v20M84 450h20M796 450h20" stroke="#b4c1a0" strokeOpacity=".5" />
     </svg>
-    <div className={styles.fieldCaption}><span>FIG. 01 / A STUDY IN FLOW</span><button type="button" onClick={() => setPaused(!paused)} aria-label={paused ? "Play ambient animation" : "Pause ambient animation"} aria-pressed={paused}>{paused ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}<span>{paused ? "Play" : "Pause"}</span></button><span className={styles.stillLabel}>STILL STUDY</span></div>
+    <div className={styles.fieldCaption}><span>FIG. 01 / A STUDY IN FLOW</span><button type="button" onClick={() => setPaused(value => !value)} aria-label={paused ? "Play ambient animation" : "Pause ambient animation"}>{paused ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}<span>{paused ? "Play" : "Pause"}</span></button><span className={styles.stillLabel}>STILL STUDY</span></div>
   </div>;
 }
