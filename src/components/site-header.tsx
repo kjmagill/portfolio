@@ -11,10 +11,10 @@ import { links } from "@/lib/site";
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const items = [{ href: links.work, label: "Work" }, { href: links.about, label: "About" }, { href: "/#expertise", label: "Expertise" }];
+  const items = [{ href: links.work, label: "Work" }, { href: links.about, label: "About" }, { href: "/#expertise", label: "Expertise" }, { href: links.flowstate, label: "Labs" }];
   return <header className="site-header"><div className="header-inner">
     <Link href="/" className="brand" aria-label="KJ Magill: home"><Image src="/images/kj-logo.png" alt="KJ" width={44} height={45} priority /></Link>
-    <nav className="desktop-nav" aria-label="Primary">{items.map(item => <Link key={item.label} href={item.href}>{item.label}</Link>)}</nav>
+    <nav className="desktop-nav" aria-label="Primary">{items.map(item => <Link key={item.label} href={item.href} aria-label={item.label === "Labs" ? "Flowstate Labs studio" : undefined}>{item.label}</Link>)}</nav>
     <Link className="header-contact" href={links.contact} aria-current={pathname === "/contact" ? "page" : undefined}>Let’s talk <ArrowUpRight size={16} aria-hidden="true" /></Link>
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild><Button variant="ghost" size="icon" className="mobile-menu" aria-label="Open navigation"><Menu /></Button></SheetTrigger>
@@ -28,7 +28,7 @@ export function SiteHeader() {
           <SheetDescription className="sr-only">Explore my work, background, and expertise, or start a conversation.</SheetDescription>
           <nav className="mobile-nav" aria-label="Mobile">
             {items.map((item, index) => <Link key={item.label} href={item.href} onClick={() => setOpen(false)}>
-              <span className="navigation-number" aria-hidden="true">0{index + 1}</span><span>{item.label}</span><ArrowRight size={22} aria-hidden="true" />
+              <span className="navigation-number" aria-hidden="true">0{index + 1}</span><span>{item.label === "Labs" ? "Flowstate Labs" : item.label}</span><ArrowRight size={22} aria-hidden="true" />
             </Link>)}
           </nav>
           <div className="navigation-contact">
