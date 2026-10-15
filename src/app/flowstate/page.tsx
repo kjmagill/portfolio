@@ -10,12 +10,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(url),
   title: { absolute: title },
   description,
+  formatDetection: { telephone: false },
   applicationName: "Flowstate Labs",
   authors: [{ name: "KJ Magill", url: "https://kjmagill.com" }],
   creator: "KJ Magill",
   publisher: "Flowstate Labs",
   category: "Software development and product design",
-  keywords: ["Flowstate Labs", "custom software development", "product design studio", "web application development", "mobile app development", "KJ Magill"],
+  keywords: ["Flowstate Labs", "custom software development", "product design studio", "web application development", "mobile app development", "New Jersey software studio", "KJ Magill"],
   alternates: { canonical: `${url}/` },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v2.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
@@ -30,7 +31,7 @@ function Mark({ className = "" }: { className?: string }) {
 }
 
 export default function FlowstatePage() {
-  return <div className={styles.studio} id="top">
+  return <div className={styles.studio} id="top" tabIndex={-1}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(flowstateSchema) }} />
     <header className={styles.header}>
       <a href="#top" className={styles.brand} aria-label="Flowstate Labs home"><Mark /><span>flowstate<span className={styles.labs}>LABS</span></span></a>
@@ -46,7 +47,7 @@ export default function FlowstatePage() {
         <FlowField />
         <div className={styles.heroFoot}><span>Clarity in thought. Momentum in making.</span><a href="#practice">Enter the studio <ArrowDown size={15} aria-hidden="true" /></a></div>
       </section>
-      <section id="practice" className={styles.practice} aria-labelledby="practice-title">
+      <section id="practice" tabIndex={-1} className={styles.practice} aria-labelledby="practice-title">
         <div className={styles.sectionMeta}><span className={styles.eyebrow}>01 / The practice</span><span>LESS NOISE. MORE INTENT.</span></div>
         <div className={styles.manifesto}><h2 id="practice-title">A clear direction.<br />A deeper kind of <em>focus.</em></h2><div><p>Flow is what happens when the right challenge meets undivided attention. That’s how we like to work.</p><p>Flowstate Labs is an independent studio led by developer and founder KJ Magill. We connect product thinking, interface design, and engineering so the idea and the execution move together.</p><a className={styles.quietLink} href="https://kjmagill.com" target="_blank" rel="noopener noreferrer">Meet the founder <ArrowUpRight size={16} aria-hidden="true" /><span className={styles.srOnly}> (opens in a new tab)</span></a></div></div>
         <div className={styles.services}>
@@ -55,7 +56,7 @@ export default function FlowstatePage() {
           <article><span className={styles.serviceIndex}>/ 03</span><div className={`${styles.serviceGlyph} ${styles.glyphBuild}`} aria-hidden="true"><i /><i /><i /></div><h3>Build for what’s next.</h3><p>Turn the thinking into working software. Connect the systems, refine the experience, and leave room to grow.</p><span className={styles.serviceTags}>Web &amp; mobile / Full-stack engineering</span></article>
         </div>
       </section>
-      <section id="work" className={styles.work} aria-labelledby="work-title">
+      <section id="work" tabIndex={-1} className={styles.work} aria-labelledby="work-title">
         <div className={styles.sectionMeta}><span className={styles.eyebrow}>02 / Selected experience</span><span>THINKING, MADE TANGIBLE.</span></div>
         <div className={styles.sectionHeading}><h2 id="work-title">Out of the abstract.<br /><em>Into the world.</em></h2><p>A selection from KJ’s product and engineering work. Different challenges, the same attention to what makes a product useful.</p></div>
         <div className={styles.workGrid}>
@@ -76,7 +77,7 @@ export default function FlowstatePage() {
           {[{ n: "01", title: "Get to the heart of it.", text: "We start with the problem, the people, and the business behind the idea. Together, we define what success looks like and choose a focused first step." }, { n: "02", title: "Make the idea tangible.", text: "Flows and prototypes bring the important decisions into view early. We test the direction together before committing to the full build." }, { n: "03", title: "Build. Refine. Release.", text: "Working software arrives in focused iterations. We make room for feedback, take care of the details, and prepare for a confident launch." }, { n: "04", title: "Follow what you learn.", text: "Launch gives us real feedback. We use it to guide improvements, document the decisions, and make the next phase easier to build." }].map((step, i) => <details key={step.n} name="flow-process" open={i === 0}><summary><span>{step.n}</span><h3>{step.title}</h3><Plus size={20} aria-hidden="true" /></summary><p>{step.text}</p></details>)}
         </div>
       </section>
-      <section id="connect" className={styles.connect} aria-labelledby="connect-title"><div className={styles.connectOrb} aria-hidden="true" /><p className={styles.eyebrow}>Every good thing starts somewhere.</p><h2 id="connect-title">An idea on your mind?<br />Let’s find its <em>flow.</em></h2><p>A rough sketch, a stubborn problem, or a product ready for its next chapter. Bring it into the conversation.</p><a className={styles.primaryLink} href="https://kjmagill.com/contact">Start a conversation <ArrowUpRight size={19} aria-hidden="true" /></a><a className={styles.emailLink} href="mailto:kjmagill@protonmail.com?subject=Flowstate%20Labs%20project">Or send KJ an email <ArrowRight size={14} aria-hidden="true" /></a></section>
+      <section id="connect" tabIndex={-1} className={styles.connect} aria-labelledby="connect-title"><div className={styles.connectOrb} aria-hidden="true" /><p className={styles.eyebrow}>Every good thing starts somewhere.</p><h2 id="connect-title">An idea on your mind?<br />Let’s find its <em>flow.</em></h2><p>A rough sketch, a stubborn problem, or a product ready for its next chapter. Bring it into the conversation.</p><a className={styles.primaryLink} href="https://kjmagill.com/contact">Start a conversation <ArrowUpRight size={19} aria-hidden="true" /></a><a className={styles.emailLink} href="mailto:kjmagill@protonmail.com?subject=Flowstate%20Labs%20project">Or send KJ an email <ArrowRight size={14} aria-hidden="true" /></a></section>
     </main>
     <footer className={styles.footer}><a href="#top" className={styles.brand} aria-label="Flowstate Labs, back to top"><Mark /><span>flowstate<span className={styles.labs}>LABS</span></span></a><p>Independent by design.<br /><span>New Jersey. Open to everywhere.</span></p><div><a href="https://kjmagill.com">KJ Magill <ArrowUpRight size={14} aria-hidden="true" /></a><span>© {new Date().getFullYear()} Flowstate Labs</span></div></footer>
   </div>;
