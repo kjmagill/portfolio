@@ -3,16 +3,23 @@ import { ArrowDown, ArrowUpRight, ArrowRight, Plus } from "lucide-react";
 import { FlowField } from "./flow-field";
 import styles from "./flowstate.module.css";
 
-const url = "https://flowstatelabs.kjmagill.com";
-const description = "Flowstate Labs is an independent software and product studio led by KJ Magill. Clear thinking, considered design, and hands-on engineering, from first idea to launch.";
+import { flowstate, flowstateSchema } from "@/lib/flowstate";
+
+const { url, title, description, imageAlt } = flowstate;
 export const metadata: Metadata = {
   metadataBase: new URL(url),
-  title: { absolute: "Flowstate Labs | Independent software & product studio" },
+  title: { absolute: title },
   description,
-  keywords: ["Flowstate Labs", "software studio", "product development", "KJ Magill", "web applications", "mobile applications"],
-  alternates: { canonical: url },
-  openGraph: { title: "Flowstate Labs. Find the flow. Build what’s next.", description, url, siteName: "Flowstate Labs", type: "website", images: [{ url: `${url}/flowstate/og`, width: 1200, height: 630, alt: "Flowstate Labs: Find the flow. Build what’s next." }] },
-  twitter: { card: "summary_large_image", title: "Flowstate Labs", description, images: [`${url}/flowstate/og`] },
+  applicationName: "Flowstate Labs",
+  authors: [{ name: "KJ Magill", url: "https://kjmagill.com" }],
+  creator: "KJ Magill",
+  publisher: "Flowstate Labs",
+  category: "Software development and product design",
+  keywords: ["Flowstate Labs", "custom software development", "product design studio", "web application development", "mobile app development", "KJ Magill"],
+  alternates: { canonical: `${url}/` },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
+  openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v2.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
+  twitter: { card: "summary_large_image", creator: "@kjmagill", title, description, images: [{ url: `${url}/flowstate/social-flowstate-v2.jpg`, width: 1200, height: 600, alt: imageAlt }] },
   icons: { icon: [{ url: "/flowstate/mark.svg", type: "image/svg+xml" }], apple: [{ url: "/flowstate/apple-icon.png", sizes: "180x180" }] },
   manifest: "/flowstate/site.webmanifest",
 };
@@ -24,7 +31,7 @@ function Mark({ className = "" }: { className?: string }) {
 
 export default function FlowstatePage() {
   return <div className={styles.studio} id="top">
-    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "Organization", name: "Flowstate Labs", url, description, founder: { "@type": "Person", name: "KJ Magill", url: "https://kjmagill.com" } }) }} />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(flowstateSchema) }} />
     <header className={styles.header}>
       <a href="#top" className={styles.brand} aria-label="Flowstate Labs home"><Mark /><span>flowstate<span className={styles.labs}>LABS</span></span></a>
       <nav aria-label="Studio navigation"><a href="#practice">The practice</a><a href="#work">Selected work</a><a href="#connect" className={styles.navContact}>Let’s talk <ArrowUpRight size={16} aria-hidden="true" /></a></nav>
