@@ -66,7 +66,7 @@ export default function FlowstatePage() {
           </a>
           <a className={styles.workCard} href="https://www.capemaywebdesign.com" target="_blank" rel="noopener noreferrer">
             <div className={styles.capeArt} aria-hidden="true"><div className={styles.artTop}><span>BUILT FOR LOCAL BUSINESS</span><span>02</span></div><svg className={styles.capeCoast} viewBox="0 0 600 360" fill="none"><circle cx="470" cy="150" r="92" /><path d="M0 275C100 220 150 325 280 265S460 205 600 260M0 295C100 240 150 345 280 285S460 225 600 280M0 315C100 260 150 365 280 305S460 245 600 300" /></svg><span className={styles.capeWord}>Cape May<span>Web Design</span></span><span className={styles.capeBottom}>Independent roots. Local focus.</span></div>
-            <div className={styles.workInfo}><div><span className={styles.eyebrow}>Founder-led / Web design</span><h3>Cape May Web Design</h3></div><ArrowUpRight size={24} aria-hidden="true" /></div><p>KJ’s web design business, creating custom websites and brand identities for local businesses.</p><span className={styles.srOnly}>Visit Cape May Web Design (opens in a new tab)</span>
+            <div className={styles.workInfo}><div><span className={styles.eyebrow}>Founder-led / Web design</span><h3>Cape May Web Design</h3></div><ArrowUpRight size={24} aria-hidden="true" /></div><p>An independent web design business creating custom websites and brand identities for local businesses.</p><span className={styles.srOnly}>Visit Cape May Web Design (opens in a new tab)</span>
           </a>
         </div>
         <a className={styles.quietLink} href="https://kjmagill.com/#work">More work from the founder <ArrowUpRight size={16} aria-hidden="true" /></a>
