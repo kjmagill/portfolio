@@ -31,9 +31,9 @@ function Mark({ className = "" }: { className?: string }) {
 }
 
 export default function FlowstatePage() {
-  return <div className={styles.studio} id="top" tabIndex={-1}>
+  return <div className={styles.studio}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(flowstateSchema) }} />
-    <header className={styles.header}>
+    <header id="top" tabIndex={-1} className={styles.header}>
       <a href="#top" className={styles.brand} aria-label="Flowstate Labs home"><Mark /><span>flowstate<span className={styles.labs}>LABS</span></span></a>
       <nav aria-label="Studio navigation"><a href="#practice">The practice</a><a href="#work">Selected work</a><a href="#connect" className={styles.navContact}>Let’s talk <ArrowUpRight size={16} aria-hidden="true" /></a></nav>
     </header>

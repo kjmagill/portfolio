@@ -16,8 +16,7 @@
 
 /* Keep native controls and focus usable with text zoom and assistive display modes. */
 .studio :is(a,button,summary){scroll-margin-block:24px}
-.studio :is(section,main)[tabindex="-1"]:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
-.studio:focus{outline:none}
+.studio :is(header,section,main)[tabindex="-1"]:focus-visible{outline:2px solid var(--accent);outline-offset:-4px}
 .header{min-height:112px;height:auto;padding-block:24px;gap:20px;flex-wrap:wrap}
 .header nav{flex-wrap:wrap}
 .fieldCaption button{min-width:44px;padding:8px}
@@ -51,3 +50,6 @@
   .studio article,.workCard,.processSteps details{break-inside:avoid}
   .primaryLink,.quietLink{border:1px solid #555}
 }
+
+/* Instant anchor navigation avoids competing scroll animations during keyboard focus. */
+:global(html):has(.studio){scroll-behavior:auto;scroll-padding-top:24px}
