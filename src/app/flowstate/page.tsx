@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = { themeColor: "#101310", colorScheme: "dark" };
 
 function Mark({ className = "" }: { className?: string }) {
-  return <svg className={className} width="38" height="38" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M5 27C5 12 17 7 32 7M8 32C8 17 20 12 35 12M13 35C13 22 23 18 35 18" stroke="currentColor" strokeWidth="2.3" strokeLinecap="round" /></svg>;
+  return <svg className={className} width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M24 8H22C12 8 6 14 6 22C6 28 10 32 16 32C22 32 25 27 25 22M16 32H18C28 32 34 26 34 18C34 12 30 8 24 8C18 8 15 13 15 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" /></svg>;
 }
 
 export default function FlowstatePage() {
