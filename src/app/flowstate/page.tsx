@@ -60,13 +60,21 @@ export default function FlowstatePage() {
         <div className={styles.sectionMeta}><span className={styles.eyebrow}>02 / Selected experience</span><span>THINKING, MADE TANGIBLE.</span></div>
         <div className={styles.sectionHeading}><h2 id="work-title">Out of the abstract.<br /><em>Into the world.</em></h2><p>A product and a founder-led web design business. Two perspectives on building useful digital experiences.</p></div>
         <div className={styles.workGrid}>
-          <a className={styles.workCard} href="https://usecompbook.com" target="_blank" rel="noopener noreferrer">
-            <div className={styles.compArt} aria-hidden="true"><div className={styles.artTop}><span>COMPOUND YOUR KNOWLEDGE</span><span>01</span></div><div className={styles.compWord}>compbook<span>Know the card. Know the value.</span></div><svg viewBox="0 0 600 140" fill="none"><path d="M0 130L50 112L100 118L145 85L195 96L245 61L290 75L330 40L375 55L425 22L475 36L530 8L600 0" stroke="currentColor" strokeWidth="2" /><path d="M0 140H600M0 100H600M0 60H600M0 20H600" stroke="currentColor" opacity=".12" /></svg></div>
-            <div className={styles.workInfo}><div><span className={styles.eyebrow}>Market intelligence / Web app</span><h3>Compbook</h3></div><ArrowUpRight size={24} aria-hidden="true" /></div><p>A sales database and market price estimation tool for NBA digital trading cards.</p><span className={styles.srOnly}>Visit Compbook (opens in a new tab)</span>
+          <a className={styles.projectCard} href="https://usecompbook.com" target="_blank" rel="noopener noreferrer">
+            <div className={styles.projectMeta}><span>Product / Market intelligence</span><span aria-hidden="true">01</span></div>
+            <h3>Compbook</h3>
+            <div className={styles.projectIllustration} aria-hidden="true"><svg viewBox="0 0 480 200" fill="none"><rect x="64" y="26" width="352" height="148" rx="6" /><path d="M64 58H416M84 42H110M118 42H130" /><path d="M88 146H390M88 118H390M88 90H390" opacity=".18" /><path d="M88 144L126 130L164 135L202 110L240 118L278 90L316 99L354 76L390 70" className={styles.diagramAccent} /><circle cx="390" cy="70" r="4" className={styles.diagramPoint} /></svg></div>
+            <p>A sales database and market price estimation tool for NBA digital trading cards.</p>
+            <div className={styles.projectAction}><span>Explore the product</span><ArrowUpRight size={20} aria-hidden="true" /></div>
+            <span className={styles.srOnly}>Opens in a new tab</span>
           </a>
-          <a className={styles.workCard} href="https://www.capemaywebdesign.com" target="_blank" rel="noopener noreferrer">
-            <div className={styles.capeArt} aria-hidden="true"><div className={styles.artTop}><span>BUILT FOR LOCAL BUSINESS</span><span>02</span></div><svg className={styles.capeCoast} viewBox="0 0 600 360" fill="none"><circle cx="470" cy="150" r="92" /><path d="M0 275C100 220 150 325 280 265S460 205 600 260M0 295C100 240 150 345 280 285S460 225 600 280M0 315C100 260 150 365 280 305S460 245 600 300" /></svg><span className={styles.capeWord}>Cape May<span>Web Design</span></span><span className={styles.capeBottom}>Independent roots. Local focus.</span></div>
-            <div className={styles.workInfo}><div><span className={styles.eyebrow}>Founder-led / Web design</span><h3>Cape May Web Design</h3></div><ArrowUpRight size={24} aria-hidden="true" /></div><p>An independent web design business creating custom websites and brand identities for local businesses.</p><span className={styles.srOnly}>Visit Cape May Web Design (opens in a new tab)</span>
+          <a className={styles.projectCard} href="https://www.capemaywebdesign.com" target="_blank" rel="noopener noreferrer">
+            <div className={styles.projectMeta}><span>Founder-led / Web design</span><span aria-hidden="true">02</span></div>
+            <h3>Cape May Web Design</h3>
+            <div className={styles.projectIllustration} aria-hidden="true"><svg viewBox="0 0 480 200" fill="none"><rect x="64" y="26" width="352" height="148" rx="6" /><path d="M64 58H416M84 42H110M335 42H355M365 42H395" /><path d="M88 84H204M88 98H178M88 120H204M88 132H190" /><rect x="88" y="146" width="60" height="10" rx="2" className={styles.diagramAccent} /><rect x="244" y="76" width="150" height="80" rx="3" opacity=".35" /><circle cx="352" cy="98" r="12" className={styles.diagramAccent} /><path d="M244 138C277 114 298 155 330 132S369 124 394 139M244 148C277 124 298 165 330 142S369 134 394 149" className={styles.diagramAccent} /></svg></div>
+            <p>An independent web design business creating custom websites and brand identities for local businesses.</p>
+            <div className={styles.projectAction}><span>Explore the business</span><ArrowUpRight size={20} aria-hidden="true" /></div>
+            <span className={styles.srOnly}>Opens in a new tab</span>
           </a>
         </div>
         <a className={styles.quietLink} href="https://kjmagill.com/#work">More work from the founder <ArrowUpRight size={16} aria-hidden="true" /></a>
