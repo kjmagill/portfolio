@@ -28,6 +28,8 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/flowstate", destination: "https://flowstatelabs.kjmagill.com/", permanent: true },
+      { source: "/contact", has: [{ type: "host", value: "flowstatelabs.kjmagill.com" }], destination: "https://kjmagill.com/contact", permanent: true },
       {
         source: "/contact.html",
         destination: "/contact",
