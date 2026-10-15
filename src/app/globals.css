@@ -346,3 +346,7 @@ h2 { font-size: clamp(34px, 3.8vw, 50px); font-weight: 450; line-height: 1.18; l
   .project-art-bottom { font-size: 11px; }
   .more-work-heading { align-items: start; }
 }
+
+.footer-inner .footer-studio { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: #d7d7d0; text-underline-offset: 5px; }
+.footer-inner .footer-studio span { display: inline; color: inherit; margin: 0; }
+.footer-studio:hover { text-decoration: underline; }
