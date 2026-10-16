@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { Pause, Play } from "lucide-react";
+import { useStudioMotion } from "./motion-context";
 import styles from "./flowstate.module.css";
 
 function subscribeVisibility(notify: () => void) {
@@ -23,7 +24,7 @@ function flowPath(index: number, phase: number) {
 }
 
 export function FlowField() {
-  const [paused, setPaused] = useState(false);
+  const { paused, toggle } = useStudioMotion();
   const fieldRef = useRef<HTMLDivElement>(null);
   const elapsedRef = useRef(0);
   const linesRef = useRef<SVGGElement>(null);
@@ -83,6 +84,6 @@ export function FlowField() {
       <circle cx="450" cy="450" r="354" stroke="#b4c1a0" strokeOpacity=".12" strokeDasharray="2 9" />
       <path d="M450 84v20M450 796v20M84 450h20M796 450h20" stroke="#b4c1a0" strokeOpacity=".5" />
     </svg>
-    <div className={styles.fieldCaption}><span>FIG. 01 / A STUDY IN FLOW</span><button type="button" onClick={() => setPaused(value => !value)} aria-label={paused ? "Play ambient animation" : "Pause ambient animation"}>{paused ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}<span>{paused ? "Play" : "Pause"}</span></button><span className={styles.stillLabel}>STILL STUDY</span></div>
+    <div className={styles.fieldCaption}><span>FIG. 01 / A STUDY IN FLOW</span><button type="button" onClick={toggle} aria-label={paused ? "Play ambient animation" : "Pause ambient animation"}>{paused ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}<span>{paused ? "Play" : "Pause"}</span></button><span className={styles.stillLabel}>STILL STUDY</span></div>
   </div>;
 }

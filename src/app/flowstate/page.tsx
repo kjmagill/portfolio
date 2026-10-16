@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { ArrowDown, ArrowUpRight, ArrowRight, Plus } from "lucide-react";
+import { FlowMark } from "./flow-mark";
+import { MotionProvider } from "./motion-context";
 import { FlowField } from "./flow-field";
 import styles from "./flowstate.module.css";
 
@@ -26,15 +28,11 @@ export const metadata: Metadata = {
 };
 export const viewport: Viewport = { themeColor: "#101310", colorScheme: "dark" };
 
-function Mark({ className = "" }: { className?: string }) {
-  return <svg className={className} width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M24 8H22C12 8 6 14 6 22C6 28 10 32 16 32C22 32 25 27 25 22M16 32H18C28 32 34 26 34 18C34 12 30 8 24 8C18 8 15 13 15 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" /></svg>;
-}
-
 export default function FlowstatePage() {
-  return <div className={styles.studio}>
+  return <MotionProvider><div className={styles.studio}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(flowstateSchema) }} />
     <header id="top" tabIndex={-1} className={styles.header}>
-      <a href="#top" className={styles.brand} aria-label="Flowstate Labs home"><Mark /><span>flowstate<span className={styles.labs}>LABS</span></span></a>
+      <a href="#top" className={styles.brand} aria-label="Flowstate Labs home"><FlowMark /><span>flowstate<span className={styles.labs}>LABS</span></span></a>
       <nav aria-label="Studio navigation"><a href="#practice">The practice</a><a href="#work">Selected work</a><a href="#connect" className={styles.navContact}>Let’s talk <ArrowUpRight size={16} aria-hidden="true" /></a></nav>
     </header>
     <main id="main" tabIndex={-1}>
@@ -87,6 +85,6 @@ export default function FlowstatePage() {
       </section>
       <section id="connect" tabIndex={-1} className={styles.connect} aria-labelledby="connect-title"><div className={styles.connectOrb} aria-hidden="true" /><p className={styles.eyebrow}>Every good thing starts somewhere.</p><h2 id="connect-title">An idea on your mind?<br />Let’s find its <em>flow.</em></h2><p>A rough sketch, a stubborn problem, or a product ready for its next chapter. Bring it into the conversation.</p><a className={styles.primaryLink} href="https://kjmagill.com/contact">Start a conversation <ArrowUpRight size={19} aria-hidden="true" /></a><a className={styles.emailLink} href="mailto:kjmagill@protonmail.com?subject=Flowstate%20Labs%20project">Or send KJ an email <ArrowRight size={14} aria-hidden="true" /></a></section>
     </main>
-    <footer className={styles.footer}><a href="#top" className={styles.brand} aria-label="Flowstate Labs, back to top"><Mark /><span>flowstate<span className={styles.labs}>LABS</span></span></a><p>Independent by design.<br /><span>New Jersey. Open to everywhere.</span></p><div><a href="https://kjmagill.com">KJ Magill <ArrowUpRight size={14} aria-hidden="true" /></a><span>© {new Date().getFullYear()} Flowstate Labs</span></div></footer>
-  </div>;
+    <footer className={styles.footer}><a href="#top" className={styles.brand} aria-label="Flowstate Labs, back to top"><FlowMark /><span>flowstate<span className={styles.labs}>LABS</span></span></a><p>Independent by design.<br /><span>New Jersey. Open to everywhere.</span></p><div><a href="https://kjmagill.com">KJ Magill <ArrowUpRight size={14} aria-hidden="true" /></a><span>© {new Date().getFullYear()} Flowstate Labs</span></div></footer>
+  </div></MotionProvider>;
 }
