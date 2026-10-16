@@ -45,7 +45,7 @@ export default function FlowstatePage() {
           <a className={styles.primaryLink} href="#connect">Bring us your idea <ArrowUpRight size={18} aria-hidden="true" /></a>
         </div>
         <FlowField />
-        <div className={styles.heroFoot}><span>Clarity in thought. Momentum in making.</span><a href="#practice">Enter the studio <ArrowDown size={15} aria-hidden="true" /></a></div>
+        <div className={styles.heroFoot}><span>Thoughtful software. Built to be useful.</span><a href="#practice">Enter the studio <ArrowDown size={15} aria-hidden="true" /></a></div>
       </section>
       <section id="practice" tabIndex={-1} className={styles.practice} aria-labelledby="practice-title">
         <div className={styles.sectionMeta}><span className={styles.eyebrow}>01 / The practice</span><span>LESS NOISE. MORE INTENT.</span></div>
