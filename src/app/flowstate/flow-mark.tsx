@@ -3,11 +3,14 @@
 import { useEffect, useId, useRef } from "react";
 import { useStudioMotion } from "./motion-context";
 
-const COUNT = 8;
+const COUNT = 4;
 export function markPath(index: number, phase: number) {
-  const angle = index / COUNT * Math.PI * 2 + .12 * Math.sin(phase);
-  const point = (theta: number, radius: number) => `${(20 + Math.cos(theta) * radius * (1 + .04 * Math.sin(phase * 2))).toFixed(2)} ${(20 + Math.sin(theta) * radius * (1 - .04 * Math.sin(phase * 2))).toFixed(2)}`;
-  return `M ${point(angle, 15)} C ${point(angle + .8 + .3 * Math.sin(phase), 12)}, ${point(angle + 1.6 - .3 * Math.sin(phase), 12)}, ${point(angle + 2.4 + .15 * Math.sin(phase * 2), 15)}`;
+  // Parallel streams keep a clear silhouette without intersections or radial points.
+  const offset = (index - 1.5) * 5.2;
+  const drift = 1.6 * Math.sin(phase);
+  const curl = 2 * Math.sin(phase + .6);
+  const y = (value: number) => (value + offset).toFixed(2);
+  return `M 5 ${y(24 + drift)} C 12 ${y(26 + drift)}, 13 ${y(14 + curl)}, 21 ${y(16)} S 29 ${y(24 - curl)}, 35 ${y(15 - drift)}`;
 }
 
 export function FlowMark() {
@@ -49,6 +52,6 @@ export function FlowMark() {
   }, [paused]);
   return <svg ref={svgRef} width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
     <defs><linearGradient id={gradientId} x1="5" y1="5" x2="35" y2="35" gradientUnits="userSpaceOnUse"><stop stopColor="#eceee3" /><stop offset=".55" stopColor="#d3ed98" /><stop offset="1" stopColor="#91aa79" /></linearGradient></defs>
-    <g stroke={`url(#${gradientId})`} strokeWidth="1.35" strokeLinecap="round">{Array.from({ length: COUNT }, (_, i) => <path key={i} d={markPath(i, 0)} />)}</g>
+    <g stroke={`url(#${gradientId})`} strokeWidth="1.8" strokeLinecap="round">{Array.from({ length: COUNT }, (_, i) => <path key={i} d={markPath(i, 0)} />)}</g>
   </svg>;
 }
