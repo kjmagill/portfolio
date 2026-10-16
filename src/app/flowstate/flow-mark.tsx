@@ -3,14 +3,18 @@
 import { useEffect, useId, useRef } from "react";
 import { useStudioMotion } from "./motion-context";
 
-const COUNT = 4;
+const COUNT = 2;
 export function markPath(index: number, phase: number) {
-  // Parallel streams keep a clear silhouette without intersections or radial points.
-  const offset = (index - 1.5) * 5.2;
-  const drift = 1.6 * Math.sin(phase);
-  const curl = 2 * Math.sin(phase + .6);
-  const y = (value: number) => (value + offset).toFixed(2);
-  return `M 5 ${y(24 + drift)} C 12 ${y(26 + drift)}, 13 ${y(14 + curl)}, 21 ${y(16)} S 29 ${y(24 - curl)}, 35 ${y(15 - drift)}`;
+  // Two tapered ribbons frame an open, diagonal channel. The broad shoulders
+  // hold the silhouette at favicon scale; the inner curves breathe gently.
+  const breath = Math.sin(phase) * 1.2;
+  const points = [
+    [28, 5], [16, 2], [4, 11], [4, 23],
+    [4, 27], [6, 30], [10, 33],
+    [8 + breath, 23], [16 - breath, 12], [28, 5],
+  ].map(([x, y]) => index === 0 ? [x, y] : [40 - x, 40 - y]);
+  const p = (i: number) => points[i].map(value => value.toFixed(2)).join(" ");
+  return `M ${p(0)} C ${p(1)}, ${p(2)}, ${p(3)} C ${p(4)}, ${p(5)}, ${p(6)} C ${p(7)}, ${p(8)}, ${p(9)} Z`;
 }
 
 export function FlowMark() {
@@ -52,6 +56,6 @@ export function FlowMark() {
   }, [paused]);
   return <svg ref={svgRef} width="30" height="30" viewBox="0 0 40 40" fill="none" aria-hidden="true" focusable="false">
     <defs><linearGradient id={gradientId} x1="5" y1="5" x2="35" y2="35" gradientUnits="userSpaceOnUse"><stop stopColor="#eceee3" /><stop offset=".55" stopColor="#d3ed98" /><stop offset="1" stopColor="#91aa79" /></linearGradient></defs>
-    <g stroke={`url(#${gradientId})`} strokeWidth="1.8" strokeLinecap="round">{Array.from({ length: COUNT }, (_, i) => <path key={i} d={markPath(i, 0)} />)}</g>
+    <g fill={`url(#${gradientId})`}>{Array.from({ length: COUNT }, (_, i) => <path key={i} d={markPath(i, 0)} />)}</g>
   </svg>;
 }
