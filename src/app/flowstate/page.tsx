@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   keywords: ["Flowstate Labs", "custom software development", "product design studio", "web application development", "mobile app development", "New Jersey software studio", "KJ Magill"],
   alternates: { canonical: `${url}/` },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v2.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
-  twitter: { card: "summary_large_image", creator: "@kjmagill", title, description, images: [{ url: `${url}/flowstate/social-flowstate-v2.jpg`, width: 1200, height: 600, alt: imageAlt }] },
+  openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v3.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
+  twitter: { card: "summary_large_image", creator: "@kjmagill", title, description, images: [{ url: `${url}/flowstate/social-flowstate-v3.jpg`, width: 1200, height: 600, alt: imageAlt }] },
   icons: { icon: [{ url: "/flowstate/mark.svg", type: "image/svg+xml" }], apple: [{ url: "/flowstate/apple-icon.png", sizes: "180x180" }] },
   manifest: "/flowstate/site.webmanifest",
 };
@@ -40,7 +40,7 @@ export default function FlowstatePage() {
     <main id="main" tabIndex={-1}>
       <section className={styles.hero} aria-labelledby="flow-title">
         <div className={styles.heroIntro}><p className={styles.eyebrow}><span className={styles.statusDot} />Independent software &amp; product studio</p>
-          <h1 id="flow-title">Find the <em>flow.</em><br />Build what’s next.</h1>
+          <h1 id="flow-title">Good ideas deserve<br /><em>great software.</em></h1>
           <p className={styles.heroCopy}>Good software starts with a clear head.<br className={styles.desktopBreak} /> We turn complex ideas into thoughtful digital products, with the focus to get the details right.</p>
           <a className={styles.primaryLink} href="#connect">Bring us your idea <ArrowUpRight size={18} aria-hidden="true" /></a>
         </div>
