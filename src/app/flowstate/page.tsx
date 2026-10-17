@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   keywords: ["Flowstate Labs", "custom software development", "product design studio", "web application development", "mobile app development", "New Jersey software studio", "KJ Magill"],
   alternates: { canonical: `${url}/` },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v3.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
-  twitter: { card: "summary_large_image", creator: "@kjmagill", title, description, images: [{ url: `${url}/flowstate/social-flowstate-v3.jpg`, width: 1200, height: 600, alt: imageAlt }] },
-  icons: { icon: [{ url: "/flowstate/mark.svg", type: "image/svg+xml" }], apple: [{ url: "/flowstate/apple-icon.png", sizes: "180x180" }] },
+  openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v4.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
+  twitter: { card: "summary_large_image", creator: "@kjmagill", title, description, images: [{ url: `${url}/flowstate/social-flowstate-v4.jpg`, width: 1200, height: 600, alt: imageAlt }] },
+  icons: { icon: [{ url: "/flowstate/mark-v4.svg", type: "image/svg+xml" }], apple: [{ url: "/flowstate/apple-icon-v4.png", sizes: "180x180" }] },
   manifest: "/flowstate/site.webmanifest",
 };
 export const viewport: Viewport = { themeColor: "#101310", colorScheme: "dark" };
