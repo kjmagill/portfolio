@@ -39,7 +39,6 @@ export function FlowField() {
   useEffect(() => {
     if (paused || !inView || !pageVisible || !linesRef.current) return;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const staticTablet = window.matchMedia("(min-width: 600px) and (max-width: 899px)");
     const forcedColors = window.matchMedia("(forced-colors: active)");
     const paths = Array.from(linesRef.current.querySelectorAll("path"));
     let frame = 0;
@@ -59,9 +58,9 @@ export function FlowField() {
     function syncMotion() {
       cancelAnimationFrame(frame);
       previous = 0;
-      if (!reducedMotion.matches && !staticTablet.matches && !forcedColors.matches) frame = requestAnimationFrame(tick);
+      if (!reducedMotion.matches && !forcedColors.matches) frame = requestAnimationFrame(tick);
     }
-    const preferences = [reducedMotion, staticTablet, forcedColors];
+    const preferences = [reducedMotion, forcedColors];
     preferences.forEach(query => query.addEventListener("change", syncMotion));
     syncMotion();
     return () => {
@@ -73,12 +72,12 @@ export function FlowField() {
     <svg className={styles.fieldArt} viewBox="0 0 900 900" fill="none" aria-hidden="true">
       <defs>
         <linearGradient id="flow-light" x1="160" y1="130" x2="750" y2="780" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#dce5ad" /><stop offset=".35" stopColor="#a2b88a" /><stop offset=".7" stopColor="#5e796c" /><stop offset="1" stopColor="#222f2a" />
+          <stop stopColor="#dce5ad" /><stop offset=".35" stopColor="#a2b88a" /><stop offset=".7" stopColor="#5e796c" /><stop offset="1" stopColor="#566850" />
         </linearGradient>
         <radialGradient id="flow-glow"><stop stopColor="#b9d28c" stopOpacity=".12" /><stop offset="1" stopColor="#b9d28c" stopOpacity="0" /></radialGradient>
       </defs>
       <circle cx="450" cy="450" r="410" fill="url(#flow-glow)" />
-      <g ref={linesRef} stroke="url(#flow-light)" strokeWidth=".9">
+      <g ref={linesRef} stroke="url(#flow-light)" strokeWidth="1.15">
         {Array.from({ length: LINE_COUNT }, (_, i) => <path key={i} d={flowPath(i, 0)} />)}
       </g>
       <circle cx="450" cy="450" r="354" stroke="#b4c1a0" strokeOpacity=".12" strokeDasharray="2 9" />

@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   keywords: ["Flowstate Labs", "custom software development", "product design studio", "web application development", "mobile app development", "New Jersey software studio", "KJ Magill"],
   alternates: { canonical: `${url}/` },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v6.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
-  twitter: { card: "summary_large_image", creator: "@kjmagill", title, description, images: [{ url: `${url}/flowstate/social-flowstate-v6.jpg`, width: 1200, height: 600, alt: imageAlt }] },
-  icons: { icon: [{ url: "/flowstate/mark-v6.svg", type: "image/svg+xml" }], apple: [{ url: "/flowstate/apple-icon-v6.png", sizes: "180x180" }] },
+  openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v7.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
+  twitter: { card: "summary_large_image", creator: "@kjmagill", title, description, images: [{ url: `${url}/flowstate/social-flowstate-v7.jpg`, width: 1200, height: 600, alt: imageAlt }] },
+  icons: { icon: [{ url: "/flowstate/mark-v7.svg", type: "image/svg+xml" }, { url: "/flowstate/favicon-48-v7.png", sizes: "48x48", type: "image/png" }], apple: [{ url: "/flowstate/apple-icon-v7.png", sizes: "180x180" }] },
   manifest: "/flowstate/site.webmanifest",
 };
 export const viewport: Viewport = { themeColor: "#101310", colorScheme: "dark" };
@@ -39,7 +39,7 @@ export default function FlowstatePage() {
       <section className={styles.hero} aria-labelledby="flow-title">
         <div className={styles.heroIntro}><p className={styles.eyebrow}><span className={styles.statusDot} />Independent software &amp; product studio</p>
           <h1 id="flow-title">Good ideas deserve<br /><em>great software.</em></h1>
-          <p className={styles.heroCopy}>Good software starts with a clear head.<br className={styles.desktopBreak} /> We turn complex ideas into thoughtful digital products, with the focus to get the details right.</p>
+          <p className={styles.heroCopy}>From first sketch to launch, we bring product strategy, design, and engineering together to turn your ideas into useful digital products.</p>
           <a className={styles.primaryLink} href="#connect">Bring us your idea <ArrowUpRight size={18} aria-hidden="true" /></a>
         </div>
         <FlowField />
@@ -83,8 +83,8 @@ export default function FlowstatePage() {
           {[{ n: "01", title: "Get to the heart of it.", text: "We start with the problem, the people, and the business behind the idea. Together, we define what success looks like and choose a focused first step." }, { n: "02", title: "Make the idea tangible.", text: "Flows and prototypes bring the important decisions into view early. We test the direction together before committing to the full build." }, { n: "03", title: "Build. Refine. Release.", text: "Working software arrives in focused iterations. We make room for feedback, take care of the details, and prepare for a confident launch." }, { n: "04", title: "Follow what you learn.", text: "Launch gives us real feedback. We use it to guide improvements, document the decisions, and make the next phase easier to build." }].map((step, i) => <details key={step.n} name="flow-process" open={i === 0}><summary><span>{step.n}</span><h3>{step.title}</h3><Plus size={20} aria-hidden="true" /></summary><p>{step.text}</p></details>)}
         </div>
       </section>
-      <section id="connect" tabIndex={-1} className={styles.connect} aria-labelledby="connect-title"><div className={styles.connectOrb} aria-hidden="true" /><p className={styles.eyebrow}>Every good thing starts somewhere.</p><h2 id="connect-title">An idea on your mind?<br />Let’s find its <em>flow.</em></h2><p>A rough sketch, a stubborn problem, or a product ready for its next chapter. Bring it into the conversation.</p><a className={styles.primaryLink} href="https://kjmagill.com/contact">Start a conversation <ArrowUpRight size={19} aria-hidden="true" /></a><a className={styles.emailLink} href="mailto:kjmagill@protonmail.com?subject=Flowstate%20Labs%20project">Or send KJ an email <ArrowRight size={14} aria-hidden="true" /></a></section>
+      <section id="connect" tabIndex={-1} className={styles.connect} aria-labelledby="connect-title"><div className={styles.connectOrb} aria-hidden="true" /><p className={styles.eyebrow}>Every good thing starts somewhere.</p><h2 id="connect-title">Have something in mind?<br />Let’s <em>build it together.</em></h2><p>A rough sketch, a stubborn problem, or a product ready for its next chapter. Bring it into the conversation.</p><a className={styles.primaryLink} href="https://kjmagill.com/contact">Start a conversation <ArrowUpRight size={19} aria-hidden="true" /></a><a className={styles.emailLink} href="mailto:kjmagill@protonmail.com?subject=Flowstate%20Labs%20project">Or send KJ an email <ArrowRight size={14} aria-hidden="true" /></a></section>
     </main>
-    <footer className={styles.footer}><a href="#top" className={styles.brand} aria-label="Flowstate Labs, back to top"><FlowLogo /></a><p>Independent by design.<br /><span>New Jersey. Open to everywhere.</span></p><div><a href="https://kjmagill.com">KJ Magill <ArrowUpRight size={14} aria-hidden="true" /></a><span>© {new Date().getFullYear()} Flowstate Labs</span></div></footer>
+    <footer className={styles.footer}><a href="#top" className={styles.brand} aria-label="Flowstate Labs, back to top"><FlowLogo /></a><p>Independent by design.<br /><span>Based in New Jersey.<br />Working with clients worldwide.</span></p><div><a href="https://kjmagill.com">KJ Magill <ArrowUpRight size={14} aria-hidden="true" /></a><span>© {new Date().getFullYear()} Flowstate Labs</span></div></footer>
   </div></MotionProvider>;
 }
