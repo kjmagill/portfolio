@@ -13,7 +13,7 @@ export const flowstateSchema = {
       "@type": "Organization", "@id": `${url}/#organization`,
       name: "Flowstate Labs", url: `${url}/`, description,
       logo: { "@type": "ImageObject", url: `${url}/flowstate/apple-icon-v4.png`, width: 180, height: 180 },
-      image: `${url}/flowstate/og-flowstate-v4.jpg`,
+      image: `${url}/flowstate/og-flowstate-v5.jpg`,
       founder: { "@type": "Person", name: "KJ Magill", url: "https://kjmagill.com" },
       email: "kjmagill@protonmail.com",
       location: { "@type": "Place", name: "New Jersey, United States", address: { "@type": "PostalAddress", addressRegion: "NJ", addressCountry: "US" } },
@@ -26,7 +26,7 @@ export const flowstateSchema = {
     {
       "@type": "WebPage", "@id": `${url}/#webpage`, url: `${url}/`, name: title, description,
       isPartOf: { "@id": `${url}/#website` }, about: { "@id": `${url}/#organization` },
-      inLanguage: "en-US", primaryImageOfPage: { "@type": "ImageObject", url: `${url}/flowstate/og-flowstate-v4.jpg`, width: 1200, height: 630 },
+      inLanguage: "en-US", primaryImageOfPage: { "@type": "ImageObject", url: `${url}/flowstate/og-flowstate-v5.jpg`, width: 1200, height: 630 },
       mainEntity: { "@id": `${url}/#services` },
     },
     {

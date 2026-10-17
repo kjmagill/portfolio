@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { ArrowDown, ArrowUpRight, ArrowRight, Plus } from "lucide-react";
-import { FlowMark } from "./flow-mark";
+import { FlowLogo } from "./flow-mark";
 import { MotionProvider } from "./motion-context";
 import { FlowField } from "./flow-field";
 import styles from "./flowstate.module.css";
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   keywords: ["Flowstate Labs", "custom software development", "product design studio", "web application development", "mobile app development", "New Jersey software studio", "KJ Magill"],
   alternates: { canonical: `${url}/` },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v4.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
-  twitter: { card: "summary_large_image", creator: "@kjmagill", title, description, images: [{ url: `${url}/flowstate/social-flowstate-v4.jpg`, width: 1200, height: 600, alt: imageAlt }] },
+  openGraph: { title, description, url: `${url}/`, siteName: "Flowstate Labs", locale: "en_US", type: "website", images: [{ url: `${url}/flowstate/og-flowstate-v5.jpg`, width: 1200, height: 630, type: "image/jpeg", alt: imageAlt }] },
+  twitter: { card: "summary_large_image", creator: "@kjmagill", title, description, images: [{ url: `${url}/flowstate/social-flowstate-v5.jpg`, width: 1200, height: 600, alt: imageAlt }] },
   icons: { icon: [{ url: "/flowstate/mark-v4.svg", type: "image/svg+xml" }], apple: [{ url: "/flowstate/apple-icon-v4.png", sizes: "180x180" }] },
   manifest: "/flowstate/site.webmanifest",
 };
@@ -32,7 +32,7 @@ export default function FlowstatePage() {
   return <MotionProvider><div className={styles.studio}>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(flowstateSchema) }} />
     <header id="top" tabIndex={-1} className={styles.header}>
-      <a href="#top" className={styles.brand} aria-label="Flowstate Labs home"><FlowMark /><span>flowstate<span className={styles.labs}>LABS</span></span></a>
+      <a href="#top" className={styles.brand} aria-label="Flowstate Labs home"><FlowLogo /></a>
       <nav aria-label="Studio navigation"><a href="#practice">The practice</a><a href="#work">Selected work</a><a href="#connect" className={styles.navContact}>Let’s talk <ArrowUpRight size={16} aria-hidden="true" /></a></nav>
     </header>
     <main id="main" tabIndex={-1}>
@@ -85,6 +85,6 @@ export default function FlowstatePage() {
       </section>
       <section id="connect" tabIndex={-1} className={styles.connect} aria-labelledby="connect-title"><div className={styles.connectOrb} aria-hidden="true" /><p className={styles.eyebrow}>Every good thing starts somewhere.</p><h2 id="connect-title">An idea on your mind?<br />Let’s find its <em>flow.</em></h2><p>A rough sketch, a stubborn problem, or a product ready for its next chapter. Bring it into the conversation.</p><a className={styles.primaryLink} href="https://kjmagill.com/contact">Start a conversation <ArrowUpRight size={19} aria-hidden="true" /></a><a className={styles.emailLink} href="mailto:kjmagill@protonmail.com?subject=Flowstate%20Labs%20project">Or send KJ an email <ArrowRight size={14} aria-hidden="true" /></a></section>
     </main>
-    <footer className={styles.footer}><a href="#top" className={styles.brand} aria-label="Flowstate Labs, back to top"><FlowMark /><span>flowstate<span className={styles.labs}>LABS</span></span></a><p>Independent by design.<br /><span>New Jersey. Open to everywhere.</span></p><div><a href="https://kjmagill.com">KJ Magill <ArrowUpRight size={14} aria-hidden="true" /></a><span>© {new Date().getFullYear()} Flowstate Labs</span></div></footer>
+    <footer className={styles.footer}><a href="#top" className={styles.brand} aria-label="Flowstate Labs, back to top"><FlowLogo /></a><p>Independent by design.<br /><span>New Jersey. Open to everywhere.</span></p><div><a href="https://kjmagill.com">KJ Magill <ArrowUpRight size={14} aria-hidden="true" /></a><span>© {new Date().getFullYear()} Flowstate Labs</span></div></footer>
   </div></MotionProvider>;
 }
