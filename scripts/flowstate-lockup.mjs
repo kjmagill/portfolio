@@ -15,9 +15,9 @@ export function lettering(value, x, y, size, color, tracking = 0, face = font) {
   return { svg: `<g fill="${color}">${paths}</g>`, end: x };
 }
 export function lockup(x, y, size) {
-  const height = size * .83, width = height * 293 / 270;
+  const height = size * 1.08, width = height * 293 / 270;
   const word = lettering('flowstate', x + width + size * .32, y + size * .73, size, '#eceee3', -size * .047);
-  const labelSize = Math.max(8, size * .255);
+  const labelSize = Math.max(9, size * .255);
   const label = lettering('LABS', word.end + size * .34, y + size * .365 + labelSize * .35, labelSize, '#a5ad9f', size * .065, mono);
-  return { svg: `<svg x="${x}" y="${y - size * .065}" width="${width}" height="${height}" viewBox="0 0 293 270">${markBody}</svg>${word.svg}${label.svg}`, end: label.end };
+  return { svg: `<svg x="${x}" y="${y - size * .19}" width="${width}" height="${height}" viewBox="0 0 293 270">${markBody}</svg>${word.svg}${label.svg}`, end: label.end };
 }
