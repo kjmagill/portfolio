@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import fontkit from 'next/dist/compiled/@next/font/dist/fontkit/index.js';
 const font = fontkit.default(fs.readFileSync('src/app/fonts/geist-latin.woff2'));
 const mono = fontkit.default(fs.readFileSync('src/app/fonts/geist-mono-latin.woff2'));
-const mark = `data:image/png;base64,${fs.readFileSync('public/flowstate/logo-mark-v4.png').toString('base64')}`;
+const master = fs.readFileSync('public/flowstate/logo-mark-v6.svg', 'utf8');
+const markBody = master.replace(/<svg[^>]*>/, '').replace('</svg>', '');
 export function lettering(value, x, y, size, color, tracking = 0, face = font) {
   const run = face.layout(value), scale = size / face.unitsPerEm;
   let paths = '';
@@ -14,9 +15,9 @@ export function lettering(value, x, y, size, color, tracking = 0, face = font) {
   return { svg: `<g fill="${color}">${paths}</g>`, end: x };
 }
 export function lockup(x, y, size) {
-  const height = size * .83, width = height * 1024 / 944;
+  const height = size * .83, width = height * 293 / 270;
   const word = lettering('flowstate', x + width + size * .32, y + size * .73, size, '#eceee3', -size * .047);
   const labelSize = Math.max(8, size * .255);
   const label = lettering('LABS', word.end + size * .34, y + size * .365 + labelSize * .35, labelSize, '#a5ad9f', size * .065, mono);
-  return { svg: `<image href="${mark}" x="${x}" y="${y - size * .065}" width="${width}" height="${height}"/>${word.svg}${label.svg}`, end: label.end };
+  return { svg: `<svg x="${x}" y="${y - size * .065}" width="${width}" height="${height}" viewBox="0 0 293 270">${markBody}</svg>${word.svg}${label.svg}`, end: label.end };
 }
