@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { ArrowDown, ArrowUpRight, ArrowRight, Plus } from "lucide-react";
 import { FlowLogo } from "./flow-mark";
 import { MotionProvider } from "./motion-context";
+import { MobileMenu } from "./mobile-menu";
 import { FlowField } from "./flow-field";
 import styles from "./flowstate.module.css";
 
@@ -33,7 +34,8 @@ export default function FlowstatePage() {
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(flowstateSchema) }} />
     <header id="top" tabIndex={-1} className={styles.header}>
       <a href="#top" className={styles.brand} aria-label="Flowstate Labs home"><FlowLogo /></a>
-      <nav aria-label="Studio navigation"><a href="#practice">The practice</a><a href="#work">Selected work</a><a href="#connect" className={styles.navContact}>Let’s talk <ArrowUpRight size={16} aria-hidden="true" /></a></nav>
+      <nav className={styles.desktopNav} aria-label="Studio navigation"><a href="#practice">The practice</a><a href="#work">Selected work</a><a href="#connect" className={styles.navContact}>Let’s talk <ArrowUpRight size={16} aria-hidden="true" /></a></nav>
+      <MobileMenu />
     </header>
     <main id="main" tabIndex={-1}>
       <section className={styles.hero} aria-labelledby="flow-title">
@@ -77,7 +79,7 @@ export default function FlowstatePage() {
         </div>
         <a className={styles.quietLink} href="https://kjmagill.com/#work">More work from the founder <ArrowUpRight size={16} aria-hidden="true" /></a>
       </section>
-      <section className={styles.process} aria-labelledby="process-title">
+      <section id="process" tabIndex={-1} className={styles.process} aria-labelledby="process-title">
         <div><p className={styles.eyebrow}>03 / Working together</p><h2 id="process-title">Stay close.<br /><em>Keep moving.</em></h2><p className={styles.processIntro}>A direct relationship with the person doing the work. Clear decisions, useful conversations, and something tangible at every stage.</p><span className={styles.processNote}>ONE CONTINUOUS CONVERSATION</span></div>
         <div className={styles.processSteps}>
           {[{ n: "01", title: "Get to the heart of it.", text: "We start with the problem, the people, and the business behind the idea. Together, we define what success looks like and choose a focused first step." }, { n: "02", title: "Make the idea tangible.", text: "Flows and prototypes bring the important decisions into view early. We test the direction together before committing to the full build." }, { n: "03", title: "Build. Refine. Release.", text: "Working software arrives in focused iterations. We make room for feedback, take care of the details, and prepare for a confident launch." }, { n: "04", title: "Follow what you learn.", text: "Launch gives us real feedback. We use it to guide improvements, document the decisions, and make the next phase easier to build." }].map((step, i) => <details key={step.n} name="flow-process" open={i === 0}><summary><span>{step.n}</span><h3>{step.title}</h3><Plus size={20} aria-hidden="true" /></summary><p>{step.text}</p></details>)}
