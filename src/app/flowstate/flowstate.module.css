@@ -226,3 +226,9 @@
 }
 @media(max-width:359px){.header .brand svg{width:160px;height:auto}.menuTrigger{padding-inline:10px;gap:8px}.mobileMenu{padding-inline:18px}.menuLinks strong{font-size:26px}}
 @media(forced-colors:active){.mobileMenu{background:Canvas;color:CanvasText}.menuLinks a,.menuTop button{color:LinkText}.menuBottom>a{border:1px solid ButtonText}.menuLinks svg{color:LinkText}}
+
+/* Keep the sculpture and its supporting caption composed as one object. */
+.fieldCaption{letter-spacing:0;font-family:var(--font-geist-sans),sans-serif;font-size:12px}
+.fieldCaption button{font-size:11px;color:var(--muted)}
+@media(min-width:1200px){.field{top:24px;width:670px;height:610px}.fieldCaption{left:20%;right:12%;bottom:54px}}
+@media(max-width:599px){.field{height:280px;max-width:360px;margin-inline:auto}.fieldCaption{font-size:11px}}
