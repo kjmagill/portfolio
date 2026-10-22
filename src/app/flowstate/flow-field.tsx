@@ -92,6 +92,6 @@ export function FlowField() {
         </g>
       </g>
     </svg>
-    <div className={styles.fieldCaption}><span>FIG. 01 / A STUDY IN FLOW</span><button type="button" onClick={toggle} aria-label={paused ? "Play ambient animation" : "Pause ambient animation"}>{paused ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}<span>{paused ? "Play" : "Pause"}</span></button><span className={styles.stillLabel}>STILL STUDY</span></div>
+    <div className={styles.fieldCaption}><span>Always moving forward.</span><button type="button" onClick={toggle} aria-label={paused ? "Play ambient animation" : "Pause ambient animation"}>{paused ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}<span>{paused ? "Play" : "Pause"}</span></button><span className={styles.stillLabel}>STILL STUDY</span></div>
   </div>;
 }
