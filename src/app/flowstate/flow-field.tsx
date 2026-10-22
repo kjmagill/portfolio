@@ -10,17 +10,26 @@ function subscribeVisibility(notify: () => void) {
   return () => document.removeEventListener("visibilitychange", notify);
 }
 
-const LINE_COUNT = 64;
-const CYCLE_MS = 90_000;
+const STRANDS = 22;
+const LINE_COUNT = STRANDS * 3;
+const CYCLE_MS = 32_000;
 
-// Integer harmonics return to the same position and velocity at the loop boundary.
+// Three tapered currents echo the mark. Shared periodic motion keeps them connected
+// without rotating the silhouette or creating a visible reset at the loop boundary.
 function flowPath(index: number, phase: number) {
-  const angle = index / LINE_COUNT * Math.PI * 2;
-  const sway = .22 * Math.sin(phase);
-  const radius = 300 + 18 * Math.sin(angle * 3 + phase * 2);
-  const endAngle = angle + 2.65 + .45 * Math.sin(phase * 2);
+  const ribbon = Math.floor(index / STRANDS);
+  const t = (index % STRANDS) / (STRANDS - 1);
+  const spread = Math.sin(t * Math.PI);
+  const breath = Math.sin(phase + ribbon * .55);
+  const drift = Math.sin(phase * 2 + ribbon * .45);
   const point = (x: number, y: number) => `${x.toFixed(2)} ${y.toFixed(2)}`;
-  return `M ${point(450 + Math.cos(angle + sway) * radius, 450 + Math.sin(angle + sway) * radius)} C ${point(450 + 250 * Math.cos(angle + 1.3 + phase), 450 + 270 * Math.sin(angle + 1.3 + phase * 2))}, ${point(450 + 250 * Math.cos(angle + 4.2 - phase), 450 + 270 * Math.sin(angle + 4.2 - phase * 2))}, ${point(450 + Math.cos(endAngle + sway) * radius, 450 + Math.sin(endAngle + sway) * radius)}`;
+  if (ribbon === 0) {
+    return `M ${point(236 + t * 8, 456 + breath * 12)} C ${point(244 + t * 50, 162 + t * 126 + drift * 14)}, ${point(510 - spread * 50, 210 + t * 92 + breath * 22)}, ${point(738, 166 + breath * 12)} C ${point(696 - t * 20, 250 + t * 24)}, ${point(574, 252 + t * 70 + drift * 10)}, ${point(488 - t * 18, 250 + t * 72 + breath * 14)}`;
+  }
+  if (ribbon === 1) {
+    return `M ${point(204 + t * 8, 610 + breath * 10)} C ${point(236 + t * 42, 368 + t * 112 + drift * 14)}, ${point(430 - spread * 20, 408 + t * 88 + breath * 18)}, ${point(618, 364 + breath * 10)} C ${point(584 - t * 12, 440 + t * 22)}, ${point(478, 452 + t * 44)}, ${point(420 - t * 24, 455 + t * 38 + drift * 10)}`;
+  }
+  return `M ${point(116, 744 + breath * 8)} C ${point(270 + t * 48, 724 + t * 8)}, ${point(230 + t * 104 + drift * 12, 568 + t * 54)}, ${point(392, 510 + breath * 14)}`;
 }
 
 export function FlowField() {
@@ -71,17 +80,15 @@ export function FlowField() {
   return <div ref={fieldRef} className={styles.field} data-paused={paused || !inView || !pageVisible}>
     <svg className={styles.fieldArt} viewBox="0 0 900 900" fill="none" aria-hidden="true">
       <defs>
-        <linearGradient id="flow-light" x1="160" y1="130" x2="750" y2="780" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#dce5ad" /><stop offset=".35" stopColor="#a2b88a" /><stop offset=".7" stopColor="#5e796c" /><stop offset="1" stopColor="#566850" />
+        <linearGradient id="flow-light" x1="320" y1="160" x2="470" y2="760" gradientUnits="userSpaceOnUse">
+          <stop stopColor="#eceee3" /><stop offset=".43" stopColor="#d3ed98" /><stop offset="1" stopColor="#91aa79" />
         </linearGradient>
-        <radialGradient id="flow-glow"><stop stopColor="#b9d28c" stopOpacity=".12" /><stop offset="1" stopColor="#b9d28c" stopOpacity="0" /></radialGradient>
+        <radialGradient id="flow-glow"><stop stopColor="#b9d28c" stopOpacity=".07" /><stop offset="1" stopColor="#b9d28c" stopOpacity="0" /></radialGradient>
       </defs>
-      <circle cx="450" cy="450" r="410" fill="url(#flow-glow)" />
-      <g ref={linesRef} stroke="url(#flow-light)" strokeWidth="1.15">
-        {Array.from({ length: LINE_COUNT }, (_, i) => <path key={i} d={flowPath(i, 0)} />)}
+      <ellipse cx="450" cy="450" rx="340" ry="370" fill="url(#flow-glow)" />
+      <g ref={linesRef} stroke="url(#flow-light)" strokeWidth="1.25" strokeLinecap="round">
+        {Array.from({ length: LINE_COUNT }, (_, i) => <path key={i} d={flowPath(i, 0)} opacity={(.28 + .52 * Math.sin((i % STRANDS) / (STRANDS - 1) * Math.PI)).toFixed(3)} />)}
       </g>
-      <circle cx="450" cy="450" r="354" stroke="#b4c1a0" strokeOpacity=".12" strokeDasharray="2 9" />
-      <path d="M450 84v20M450 796v20M84 450h20M796 450h20" stroke="#b4c1a0" strokeOpacity=".5" />
     </svg>
     <div className={styles.fieldCaption}><span>FIG. 01 / A STUDY IN FLOW</span><button type="button" onClick={toggle} aria-label={paused ? "Play ambient animation" : "Pause ambient animation"}>{paused ? <Play size={13} aria-hidden="true" /> : <Pause size={13} aria-hidden="true" />}<span>{paused ? "Play" : "Pause"}</span></button><span className={styles.stillLabel}>STILL STUDY</span></div>
   </div>;
