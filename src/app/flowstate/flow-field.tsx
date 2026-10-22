@@ -12,7 +12,7 @@ function subscribeVisibility(notify: () => void) {
 
 const STRANDS = 22;
 const LINE_COUNT = STRANDS * 3;
-const CYCLE_MS = 32_000;
+const CYCLE_MS = 12_000;
 
 // Three tapered currents echo the mark. Shared periodic motion keeps them connected
 // without rotating the silhouette or creating a visible reset at the loop boundary.
@@ -20,14 +20,21 @@ function flowPath(index: number, phase: number) {
   const ribbon = Math.floor(index / STRANDS);
   const t = (index % STRANDS) / (STRANDS - 1);
   const spread = Math.sin(t * Math.PI);
-  const breath = Math.sin(phase + ribbon * .55);
-  const drift = Math.sin(phase * 2 + ribbon * .45);
-  const point = (x: number, y: number) => `${x.toFixed(2)} ${y.toFixed(2)}`;
+  const breath = Math.sin(phase + ribbon * .8);
+  const drift = Math.sin(phase * 2 + ribbon * .65);
+  // A traveling wave passes through each ribbon, with the lower currents following.
+  // Shared displacement keeps the fine strands together as the ribbon flexes.
+  const point = (x: number, y: number) => {
+    const wave = phase - x / 170 + y / 280 + ribbon * .7;
+    const dx = 18 * Math.sin(wave) + 8 * Math.sin(phase * 2 + y / 210);
+    const dy = 32 * Math.sin(wave + .8) + 12 * Math.cos(phase * 2 - x / 230);
+    return `${(x + dx).toFixed(2)} ${(y + dy).toFixed(2)}`;
+  };
   if (ribbon === 0) {
-    return `M ${point(236 + t * 8, 456 + breath * 12)} C ${point(244 + t * 50, 162 + t * 126 + drift * 14)}, ${point(510 - spread * 50, 210 + t * 92 + breath * 22)}, ${point(738, 166 + breath * 12)} C ${point(696 - t * 20, 250 + t * 24)}, ${point(574, 252 + t * 70 + drift * 10)}, ${point(488 - t * 18, 250 + t * 72 + breath * 14)}`;
+    return `M ${point(236 + t * 8, 456 + breath * 12)} C ${point(244 + t * 50, 162 + t * 126 + drift * 32)}, ${point(510 - spread * 50, 210 + t * 92 + breath * 38)}, ${point(738, 166 + breath * 12)} C ${point(696 - t * 20, 250 + t * 24)}, ${point(574, 252 + t * 70 + drift * 10)}, ${point(488 - t * 18, 250 + t * 72 + breath * 14)}`;
   }
   if (ribbon === 1) {
-    return `M ${point(204 + t * 8, 610 + breath * 10)} C ${point(236 + t * 42, 368 + t * 112 + drift * 14)}, ${point(430 - spread * 20, 408 + t * 88 + breath * 18)}, ${point(618, 364 + breath * 10)} C ${point(584 - t * 12, 440 + t * 22)}, ${point(478, 452 + t * 44)}, ${point(420 - t * 24, 455 + t * 38 + drift * 10)}`;
+    return `M ${point(204 + t * 8, 610 + breath * 10)} C ${point(236 + t * 42, 368 + t * 112 + drift * 32)}, ${point(430 - spread * 20, 408 + t * 88 + breath * 30)}, ${point(618, 364 + breath * 10)} C ${point(584 - t * 12, 440 + t * 22)}, ${point(478, 452 + t * 44)}, ${point(420 - t * 24, 455 + t * 38 + drift * 10)}`;
   }
   return `M ${point(116, 744 + breath * 8)} C ${point(270 + t * 48, 724 + t * 8)}, ${point(230 + t * 104 + drift * 12, 568 + t * 54)}, ${point(392, 510 + breath * 14)}`;
 }
