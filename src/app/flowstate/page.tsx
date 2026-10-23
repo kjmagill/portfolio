@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { ArrowDown, ArrowUpRight, ArrowRight, Plus } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Plus } from "lucide-react";
 import { FlowLogo } from "./flow-mark";
 import { MotionProvider } from "./motion-context";
+import { StudioEntry } from "./studio-entry";
 import { MobileMenu } from "./mobile-menu";
 import { FlowField } from "./flow-field";
 import styles from "./flowstate.module.css";
@@ -45,11 +46,11 @@ export default function FlowstatePage() {
           <a className={styles.primaryLink} href="#connect">Bring us your idea <ArrowUpRight size={18} aria-hidden="true" /></a>
         </div>
         <FlowField />
-        <div className={styles.heroFoot}><span>Thoughtful software. Built to be useful.</span><a href="#practice">Enter the studio <ArrowDown size={15} aria-hidden="true" /></a></div>
+        <div className={styles.heroFoot}><span>Thoughtful software. Built to be useful.</span><StudioEntry /></div>
       </section>
       <section id="practice" tabIndex={-1} className={styles.practice} aria-labelledby="practice-title">
         <div className={styles.sectionMeta}><span className={styles.eyebrow}>01 / The practice</span><span>LESS NOISE. MORE INTENT.</span></div>
-        <div className={styles.manifesto}><h2 id="practice-title">A clear direction.<br />A deeper kind of <em>focus.</em></h2><div><p>Flow is what happens when the right challenge meets undivided attention. That’s how we like to work.</p><p>Flowstate Labs is an independent studio led by developer and founder KJ Magill. We connect product thinking, interface design, and engineering so the idea and the execution move together.</p><a className={styles.quietLink} href="https://kjmagill.com" target="_blank" rel="noopener noreferrer">Meet the founder <ArrowUpRight size={16} aria-hidden="true" /><span className={styles.srOnly}> (opens in a new tab)</span></a></div></div>
+        <div className={styles.manifesto}><h2 id="practice-title">A clear direction.<br />A deeper kind of <em>focus.</em></h2><div><p>Clear priorities. Focused execution. We help you move from a promising idea to software that solves a real problem.</p><p>Flowstate Labs is an independent studio led by developer and founder KJ Magill. We connect product thinking, interface design, and engineering so the idea and the execution move together.</p><a className={styles.quietLink} href="https://kjmagill.com" target="_blank" rel="noopener noreferrer">Meet the founder <ArrowUpRight size={16} aria-hidden="true" /><span className={styles.srOnly}> (opens in a new tab)</span></a></div></div>
         <div className={styles.services}>
           <article><span className={styles.serviceIndex}>/ 01</span><div className={styles.serviceGlyph} aria-hidden="true"><i /><i /><i /></div><h3>Find the signal.</h3><p>Give the idea a useful shape. Define the problem, question the assumptions, and decide what deserves to be built.</p><span className={styles.serviceTags}>Product direction / Prototyping</span></article>
           <article><span className={styles.serviceIndex}>/ 02</span><div className={`${styles.serviceGlyph} ${styles.glyphInterface}`} aria-hidden="true"><i /><i /><i /></div><h3>Make it feel right.</h3><p>Bring clarity to every interaction. Design interfaces that feel natural, with accessibility and purpose in the details.</p><span className={styles.serviceTags}>Interface design / Design systems</span></article>
